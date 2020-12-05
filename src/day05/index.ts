@@ -1,55 +1,23 @@
 import { test, readInput } from "../../utils/index"
 
-const prepareInput = (rawInput: string) =>
-  rawInput.split("\n").map((x) => x.split(""))
+const prepareInput = (rawInput: string) => rawInput.split("\n")
 
-const getSeats = (rawInput: string) => {
+const getIds = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
-  return input.map((moves) => {
-    const rows = 127
-    const cols = 7
-    const rowMoves = moves.slice(0, 7)
-    const colMoves = moves.slice(-3)
-
-    const row = rowMoves.reduce(
-      (acc, move) => {
-        const range =
-          move === "F"
-            ? [acc[0], acc[0] + ((acc[1] - acc[0]) >> 1)]
-            : [acc[0] + ((acc[1] - acc[0]) >> 1) + 1, acc[1]]
-
-        return range
-      },
-      [0, rows],
-    )[0]
-
-    const col = colMoves.reduce(
-      (acc, move) => {
-        const range =
-          move === "L"
-            ? [acc[0], acc[0] + ((acc[1] - acc[0]) >> 1)]
-            : [acc[0] + ((acc[1] - acc[0]) >> 1) + 1, acc[1]]
-
-        return range
-      },
-      [0, cols],
-    )[0]
-
-    return { row, col, id: row * 8 + col }
-  })
+  return input.map((moves) =>
+    parseInt(moves.replace(/[FL]/g, "0").replace(/[BR]/g, "1"), 2),
+  )
 }
 
 const goA = (rawInput: string) => {
-  const seats = getSeats(rawInput)
+  const ids = getIds(rawInput)
 
-  return Math.max(...seats.map((seat) => seat.id))
+  return Math.max(...ids)
 }
 
 const goB = (rawInput: string) => {
-  const ids = getSeats(rawInput)
-    .map((seat) => seat.id)
-    .sort((a, b) => a - b)
+  const ids = getIds(rawInput).sort((a, b) => a - b)
 
   for (let i = 0; i < ids.length; i++) {
     if (ids[i] + 1 !== ids[i + 1]) {

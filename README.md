@@ -75,31 +75,31 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 359.656ms
+Time: 366.848ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 6.708ms
+Time: 7.145ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 0.877ms
+Time: 0.884ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 9.435ms
+Time: 8.648ms
 Solution to part 1: 242
 Solution to part 2: 186
 
 day05
 ------------------------------
-Time: 6.765ms
+Time: 2.688ms
 Solution to part 1: 935
 Solution to part 2: 743
 ```

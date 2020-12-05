@@ -1,4 +1,4 @@
-# 🎄 Advent of Code 2015 solutions (TypeScript) 🎄
+# 🎄 Advent of Code 2020 solutions (TypeScript) 🎄
 
 ## Completed
 

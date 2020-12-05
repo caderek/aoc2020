@@ -1,13 +1,12 @@
 import { test, readInput } from "../../utils/index"
 
-const prepareInput = (rawInput: string) => rawInput.split("\n")
+const prepareInput = (rawInput: string) =>
+  rawInput.replace(/[FL]/g, "0").replace(/[BR]/g, "1").split("\n")
 
 const getIds = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
-  return input.map((moves) =>
-    parseInt(moves.replace(/[FL]/g, "0").replace(/[BR]/g, "1"), 2),
-  )
+  return input.map((moves) => parseInt(moves, 2))
 }
 
 const goA = (rawInput: string) => {

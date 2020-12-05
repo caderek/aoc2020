@@ -6,7 +6,7 @@
 [![Day](https://badgen.net/badge/02/%E2%98%85%E2%98%85/blue)](src/day02)
 [![Day](https://badgen.net/badge/03/%E2%98%85%E2%98%85/blue)](src/day03)
 [![Day](https://badgen.net/badge/04/%E2%98%85%E2%98%85/blue)](src/day04)
-[![Day](https://badgen.net/badge/05/%E2%98%86%E2%98%86/gray)](src/day05)
+[![Day](https://badgen.net/badge/05/%E2%98%85%E2%98%85/blue)](src/day05)
 [![Day](https://badgen.net/badge/06/%E2%98%86%E2%98%86/gray)](src/day06)
 [![Day](https://badgen.net/badge/07/%E2%98%86%E2%98%86/gray)](src/day07)
 [![Day](https://badgen.net/badge/08/%E2%98%86%E2%98%86/gray)](src/day08)
@@ -75,25 +75,31 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 374.073ms
+Time: 359.656ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 9.952ms
+Time: 6.708ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 0.875ms
+Time: 0.877ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 8.931ms
+Time: 9.435ms
 Solution to part 1: 242
 Solution to part 2: 186
+
+day05
+------------------------------
+Time: 6.765ms
+Solution to part 1: 935
+Solution to part 2: 743
 ```

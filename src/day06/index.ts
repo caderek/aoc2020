@@ -5,25 +5,27 @@ const prepareInput = (rawInput: string) => rawInput.split("\n\n")
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
-  return input
-    .map((x) => new Set([...x.replace(/[\s\n]/g, "")]).size)
-    .reduce((a, b) => a + b)
+  return input.reduce(
+    (acc, x) => acc + new Set([...x.replace(/[\s\n]/g, "")]).size,
+    0,
+  )
 }
 
 const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
-  return input
-    .map((rawGroup) => {
-      const letters = Array.from(new Set([...rawGroup.replace(/\n/g, "")]))
-      const group = rawGroup.split("\n")
+  return input.reduce((acc, rawGroup) => {
+    const letters = Array.from(new Set([...rawGroup.replace(/\n/g, "")]))
+    const group = rawGroup.split("\n")
 
-      return letters.reduce(
+    return (
+      acc +
+      letters.reduce(
         (all, l) => all + (group.every((ans) => ans.includes(l)) ? 1 : 0),
         0,
       )
-    })
-    .reduce((a, b) => a + b)
+    )
+  }, 0)
 }
 
 const main = async () => {

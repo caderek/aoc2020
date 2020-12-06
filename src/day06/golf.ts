@@ -1,6 +1,3 @@
-// const goA = (i) =>
-//   i.reduce((a, x) => a + new Set([...x.replace(/[\s\n]/g, "")]).size, 0)
-
 const goA = (rawInput: string) =>
   rawInput
     .split("\n\n")

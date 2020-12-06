@@ -9,8 +9,13 @@ const create = (w?: number, h?: number, fill: any = null) => {
   })
 }
 
-const from = (definition: string, mapper?: Function) => {
-  const grid = definition.split("\n").map((line) => line.split(""))
+type Grid = any[][]
+type Mapper = (definition: string) => Grid
+
+const from = (definition: string, mapper?: Mapper) => {
+  const grid = mapper
+    ? mapper(definition)
+    : definition.split("\n").map((line) => line.split(""))
 
   return Object.assign(grid, {
     height: grid.length,
@@ -18,7 +23,7 @@ const from = (definition: string, mapper?: Function) => {
   })
 }
 
-const neighborsWithDiagonals = (x: number, y: number, grid: any[][]) => {
+const neighborsWithDiagonals = (x: number, y: number, grid: Grid) => {
   return [
     grid[y - 1]?.[x],
     grid[y - 1]?.[x + 1],
@@ -31,7 +36,7 @@ const neighborsWithDiagonals = (x: number, y: number, grid: any[][]) => {
   ].filter((n) => n !== undefined)
 }
 
-const neighbors = (x: number, y: number, grid) => {
+const neighbors = (x: number, y: number, grid: Grid) => {
   return [
     grid[y - 1]?.[x],
     grid[y][x + 1],

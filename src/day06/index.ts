@@ -6,8 +6,7 @@ const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
   return input
-    .map((x) => x.replace(/\s/g, "").replace(/\n/g, ""))
-    .map((x) => new Set([...x]).size)
+    .map((x) => new Set([...x.replace(/[\s\n]/g, "")]).size)
     .reduce((a, b) => a + b)
 }
 

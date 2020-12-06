@@ -44,8 +44,7 @@ const goB = (rawInput: string) => {
         : amount >= 59 && amount <= 76
     },
     hcl: (val) => val.match(/^#[0-9a-f]{6}$/),
-    ecl: (val) =>
-      ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].includes(val),
+    ecl: (val) => val.match(/^(amb|blu|brn|gry|grn|hzl|oth)$/),
     pid: (val) => val.match(/^\d{9}$/),
     cid: (val) => true,
   }

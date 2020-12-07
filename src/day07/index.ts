@@ -1,4 +1,5 @@
 import { test, readInput, graph } from "../../utils/index"
+import { writeFileSync } from "fs"
 
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((rule) => {
@@ -64,6 +65,28 @@ const goB = (g: graph.Graph) => {
   return recur("shiny gold").reduce((a, b) => a + b)
 }
 
+const saveVisualizationData = (g: graph.Graph) => {
+  const recur = (id: string) => {
+    const edges = g.outEdges(id) as graph.Edge[]
+
+    if (edges.length > 0) {
+      const amounts = edges.map((edge) => g.edge(edge.v, edge.w))
+
+      const children = edges
+        .map(({ w }, i) => Array.from({ length: amounts[i] }, (_) => recur(w)))
+        .flat(2)
+
+      return [{ name: id, children }]
+    } else {
+      return [{ name: id }]
+    }
+  }
+
+  const data = recur("shiny gold")
+
+  writeFileSync("src/day07/vis-data.temp.json", JSON.stringify(data[0]))
+}
+
 const main = async () => {
   /* Tests */
 
@@ -118,6 +141,8 @@ dark violet bags contain no other bags.
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)
+
+  // saveVisualizationData(graph)
 }
 
 main()

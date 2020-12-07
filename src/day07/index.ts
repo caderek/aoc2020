@@ -31,10 +31,7 @@ const createGraph = (input) => {
   return g
 }
 
-const goA = (rawInput: string) => {
-  const input = prepareInput(rawInput)
-  const g = createGraph(input)
-
+const goA = (g: graph.Graph) => {
   const recur = (id: string) => {
     const pre = g.predecessors(id) as string[]
     if (pre.length > 0) {
@@ -49,10 +46,7 @@ const goA = (rawInput: string) => {
   return new Set(result).size
 }
 
-const goB = (rawInput: string) => {
-  const input = prepareInput(rawInput)
-  const g = createGraph(input)
-
+const goB = (g: graph.Graph) => {
   const recur = (id: string) => {
     const edges = g.outEdges(id) as graph.Edge[]
 
@@ -77,7 +71,9 @@ const main = async () => {
 
   test(
     goA(
-      `
+      createGraph(
+        prepareInput(
+          `
 light red bags contain 1 bright white bag, 2 muted yellow bags.
 dark orange bags contain 3 bright white bags, 4 muted yellow bags.
 bright white bags contain 1 shiny gold bag.
@@ -87,14 +83,18 @@ dark olive bags contain 3 faded blue bags, 4 dotted black bags.
 vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.
-  `.trim(),
+    `.trim(),
+        ),
+      ),
     ),
     4,
   )
 
   test(
     goB(
-      `
+      createGraph(
+        prepareInput(
+          `
 shiny gold bags contain 2 dark red bags.
 dark red bags contain 2 dark orange bags.
 dark orange bags contain 2 dark yellow bags.
@@ -102,18 +102,20 @@ dark yellow bags contain 2 dark green bags.
 dark green bags contain 2 dark blue bags.
 dark blue bags contain 2 dark violet bags.
 dark violet bags contain no other bags.
-  `.trim(),
+    `.trim(),
+        ),
+      ),
     ),
     126,
   )
 
   /* Results */
 
-  const input = readInput()
+  const graph = createGraph(prepareInput(readInput()))
 
   console.time("Time")
-  const resultA = await goA(input)
-  const resultB = await goB(input)
+  const resultA = await goA(graph)
+  const resultB = await goB(graph)
   console.timeEnd("Time")
 
   console.log("Solution to part 1:", resultA)

@@ -111,7 +111,7 @@ Solution to part 2: 3219
 
 day07
 ------------------------------
-Time: 58.724ms
+Time: 5.066ms
 Solution to part 1: 355
 Solution to part 2: 5312
 ```

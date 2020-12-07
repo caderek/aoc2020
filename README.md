@@ -8,7 +8,7 @@
 [![Day](https://badgen.net/badge/04/%E2%98%85%E2%98%85/blue)](src/day04)
 [![Day](https://badgen.net/badge/05/%E2%98%85%E2%98%85/blue)](src/day05)
 [![Day](https://badgen.net/badge/06/%E2%98%85%E2%98%85/blue)](src/day06)
-[![Day](https://badgen.net/badge/07/%E2%98%86%E2%98%86/gray)](src/day07)
+[![Day](https://badgen.net/badge/07/%E2%98%85%E2%98%85/blue)](src/day07)
 [![Day](https://badgen.net/badge/08/%E2%98%86%E2%98%86/gray)](src/day08)
 [![Day](https://badgen.net/badge/09/%E2%98%86%E2%98%86/gray)](src/day09)
 [![Day](https://badgen.net/badge/10/%E2%98%86%E2%98%86/gray)](src/day10)
@@ -108,4 +108,10 @@ day06
 Time: 5.084ms
 Solution to part 1: 6596
 Solution to part 2: 3219
+
+day07
+------------------------------
+Time: 58.724ms
+Solution to part 1: 355
+Solution to part 2: 5312
 ```

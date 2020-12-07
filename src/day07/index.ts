@@ -23,8 +23,6 @@ const createGraph = (input) => {
   const g = new graph.Graph({ directed: true })
 
   input.forEach(({ bag, entries }) => {
-    g.setNode(bag)
-
     entries.forEach(([amount, subBag]) => {
       g.setEdge(bag, subBag, amount)
     })
@@ -35,7 +33,6 @@ const createGraph = (input) => {
 
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
-
   const g = createGraph(input)
 
   const recur = (id: string) => {
@@ -54,7 +51,6 @@ const goA = (rawInput: string) => {
 
 const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
-
   const g = createGraph(input)
 
   const recur = (id: string) => {

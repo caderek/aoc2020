@@ -15,7 +15,7 @@ const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
 
   return input.reduce((acc, rawGroup) => {
-    const letters = Array.from(new Set([...rawGroup.replace(/\n/g, "")]))
+    const letters = Array.from(new Set([...rawGroup.split("\n")[0]]))
     const group = rawGroup.split("\n")
 
     return (

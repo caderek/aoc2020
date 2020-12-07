@@ -105,7 +105,7 @@ Solution to part 2: 743
 
 day06
 ------------------------------
-Time: 5.973ms
+Time: 5.084ms
 Solution to part 1: 6596
 Solution to part 2: 3219
 ```

@@ -41,9 +41,7 @@ const goA = (g: graph.Graph) => {
     }
   }
 
-  const result = recur("shiny gold")
-
-  return new Set(result).size
+  return new Set(recur("shiny gold")).size
 }
 
 const goB = (g: graph.Graph) => {

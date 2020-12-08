@@ -3,10 +3,9 @@ import compute from "./computer"
 
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((line) => {
-    const opcode = line.split(" ")[0]
-    const val = Number(line.split(" ")[1])
+    const [opcode, val] = line.split(" ")
 
-    return [opcode, val]
+    return [opcode, Number(val)]
   })
 
 const goA = (rawInput: string) => {

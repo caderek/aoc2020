@@ -14,25 +14,20 @@ const compute = (program: [string, number][]) => {
 
     const [opcode, val] = program[pointer]
 
-    let shouldJump = true
-
     switch (opcode) {
       case "acc": {
         acc += val
+        pointer++
         break
       }
       case "nop": {
+        pointer++
         break
       }
       case "jmp": {
         pointer += val
-        shouldJump = false
         break
       }
-    }
-
-    if (shouldJump) {
-      pointer += 1
     }
   }
 

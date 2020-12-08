@@ -1,4 +1,3 @@
-import { contains } from "ramda"
 import { test, readInput } from "../../utils/index"
 import compute from "./computer"
 

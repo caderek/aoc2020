@@ -120,4 +120,10 @@ day08
 Time: 78.874ms
 Solution to part 1: 1337
 Solution to part 2: 1358
+
+day09
+------------------------------
+Time: 10.346ms
+Solution to part 1: 507622668
+Solution to part 2: 76688505
 ```

@@ -9,14 +9,27 @@ import { isDeepStrictEqual } from "util"
 import grid from "./grid"
 import numSys from "./num-sys"
 import * as gen from "generatorics"
+import { sendSolution } from "./api"
+import * as getCallerFile from "get-caller-file"
 
 const log = (data) => console.dir(data, { colors: true, depth: 99 })
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const equal = com.curry(isDeepStrictEqual)
 
+const day = process.argv[2]
+  ? Number(process.argv[2].match(/[0-9]{2}/)[0])
+  : null
+
+const send = (part: 1 | 2, solution: number | string) => {
+  sendSolution(2020, day, part, solution)
+}
+
+const read = () => readInput(getCallerFile(), day)
+
 export {
+  read,
+  send,
   test,
-  readInput,
   arr,
   com,
   mul,

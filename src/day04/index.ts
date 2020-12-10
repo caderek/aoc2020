@@ -1,4 +1,4 @@
-import { test, readInput } from "../../utils/index"
+import { test, read } from "../../utils/index"
 
 const prepareInput = (rawInput: string) =>
   rawInput
@@ -109,7 +109,7 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`).length,
 
   /* Results */
 
-  const input = readInput()
+  const input = read()
 
   console.time("Time")
   const resultA = await goA(input).length

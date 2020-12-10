@@ -1,4 +1,4 @@
-import { test, readInput } from "../../utils/index"
+import { test, read } from "../../utils/index"
 
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((x) => x.split(""))
@@ -68,7 +68,7 @@ const main = async () => {
 
   /* Results */
 
-  const input = readInput()
+  const input = read()
 
   console.time("Time")
   const resultA = await goA(input)

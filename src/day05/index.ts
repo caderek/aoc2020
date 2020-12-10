@@ -1,4 +1,4 @@
-import { test, readInput } from "../../utils/index"
+import { test, read } from "../../utils/index"
 
 const prepareInput = (rawInput: string) =>
   rawInput.replace(/[FL]/g, "0").replace(/[BR]/g, "1").split("\n")
@@ -35,7 +35,7 @@ const main = async () => {
 
   /* Results */
 
-  const input = readInput()
+  const input = read()
 
   console.time("Time")
   const resultA = await goA(input)

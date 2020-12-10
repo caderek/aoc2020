@@ -1,17 +1,17 @@
 import { readFileSync, existsSync } from "fs"
 import { sep } from "path"
-import * as getCallerFile from "get-caller-file"
+import { getInput } from "./api"
 
-export const readInput = () => {
-  const file = getCallerFile()
-    .split(sep)
-    .slice(0, -1)
-    .concat("input.txt")
-    .join(sep)
+export const readInput = (caller: string, day: number | null = null) => {
+  const file = caller.split(sep).slice(0, -1).concat("input.txt").join(sep)
+
+  if (day !== null) {
+    getInput(2020, day, file)
+  }
 
   if (existsSync(file)) {
     return readFileSync(file).toString()
   } else {
-    throw new Error("No input file!")
+    console.error("No input file")
   }
 }

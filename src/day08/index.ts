@@ -1,4 +1,4 @@
-import { test, readInput } from "../../utils/index"
+import { test, read } from "../../utils/index"
 import compute from "./computer"
 
 const prepareInput = (rawInput: string) =>
@@ -74,7 +74,7 @@ acc +6
 
   /* Results */
 
-  const input = readInput()
+  const input = read()
 
   console.time("Time")
   const resultA = await goA(input)

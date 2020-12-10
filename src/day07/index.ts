@@ -1,4 +1,4 @@
-import { test, readInput, graph } from "../../utils/index"
+import { test, read, graph } from "../../utils/index"
 import { writeFileSync } from "fs"
 
 const prepareInput = (rawInput: string) =>
@@ -132,7 +132,7 @@ dark violet bags contain no other bags.
 
   /* Results */
 
-  const graph = createGraph(prepareInput(readInput()))
+  const graph = createGraph(prepareInput(read()))
 
   console.time("Time")
   const resultA = await goA(graph)

@@ -1,6 +1,7 @@
 import {
+  read,
+  send,
   test,
-  readInput,
   arr,
   com,
   mul,
@@ -31,14 +32,12 @@ const main = async () => {
   /* Tests */
 
   // test(goA(""), )
-  // test(goA(""), )
 
-  // test(goB(""), )
   // test(goB(""), )
 
   /* Results */
 
-  const input = readInput()
+  const input = read()
 
   console.time("Time")
   const resultA = await goA(input)
@@ -47,6 +46,9 @@ const main = async () => {
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)
+
+  // send(1, resultA)
+  // send(2, resultB)
 }
 
 main()

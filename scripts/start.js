@@ -23,7 +23,7 @@ if (!day) {
     console.log("")
   })
 } else {
-  spawn("nodemon", ["-x", "ts-node", `src/${day}/index.ts`], {
+  spawn("nodemon", ["-x", "ts-node", `src/${day}/index.ts`, day], {
     stdio: "inherit",
   })
 }

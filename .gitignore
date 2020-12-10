@@ -8,3 +8,4 @@ src/**/*.d.ts
 src/**/*.temp.*
 src/**/*.temp
 .vscode
+.env

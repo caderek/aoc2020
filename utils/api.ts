@@ -95,8 +95,6 @@ const sendSolution = (
         .textContent.replace(/\[.*\]/, "")
         .trim()
 
-      console.log(info)
-
       if (info.includes("That's the right answer")) {
         console.log(`\nStatus: PART ${part} SOLVED!`)
       } else if (info.includes("That's not the right answer")) {
@@ -108,7 +106,8 @@ const sendSolution = (
       ) {
         console.log("\nStatus: ALREADY COMPLETED or LOCKED")
       } else {
-        console.log("\nStatus: UNKNOWN RESPONSE")
+        console.log("\nStatus: UNKNOWN RESPONSE\n")
+        console.log(info)
       }
 
       const waitStr = info.match(
@@ -155,3 +154,9 @@ const sendSolution = (
 }
 
 export { getInput, sendSolution }
+
+/*
+That's the right answer!  You are one gold star closer to saving your vacation.You have completed Day 10! You can [Shareon
+  Twitter
+  Mastodon] this victory or .
+*/

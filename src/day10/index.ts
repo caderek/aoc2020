@@ -1,3 +1,4 @@
+import { writeFileSync } from "fs"
 import { read, send, test } from "../../utils/index"
 
 const prepareInput = (rawInput: string) => {
@@ -80,6 +81,34 @@ const goB = (adapters: number[]) => {
   return graph.dfs(0)
 }
 
+const saveVisualizationData = (adapters: number[]) => {
+  const nodes = adapters.map((x, i) => ({ id: x, group: i }))
+  const links = []
+
+  for (let i = 0; i < adapters.length - 1; i++) {
+    let inc = 1
+
+    while (true) {
+      if (adapters[i + inc] === undefined) {
+        break
+      }
+
+      const inRange = adapters[i + inc] - adapters[i] <= 3
+
+      if (!inRange) {
+        break
+      }
+
+      links.push({ source: adapters[i], target: adapters[i + inc], value: inc })
+      inc++
+    }
+  }
+
+  const data = { nodes, links }
+
+  writeFileSync("src/day10/vis-data.temp.json", JSON.stringify(data))
+}
+
 const main = async () => {
   /* Tests */
 
@@ -139,6 +168,8 @@ const main = async () => {
 
   // send(1, resultA)
   // send(2, resultB)
+
+  saveVisualizationData(input)
 }
 
 main()

@@ -60,6 +60,7 @@ const goB = (adapters: number[]) => {
 
   for (let i = 0; i < adapters.length - 1; i++) {
     let inc = 1
+
     while (true) {
       if (adapters[i + inc] === undefined) {
         break

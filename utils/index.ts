@@ -6,7 +6,7 @@ import * as math from "mathjs"
 import * as R from "ramda"
 import * as graph from "graphlib"
 import { isDeepStrictEqual } from "util"
-import grid from "./grid"
+// import grid from "./grid"
 import numSys from "./num-sys"
 import * as gen from "generatorics"
 import { sendSolution } from "./api"
@@ -40,7 +40,7 @@ export {
   log,
   delay,
   equal,
-  grid,
+  // grid,
   numSys,
   gen,
 }

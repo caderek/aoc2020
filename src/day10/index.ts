@@ -169,7 +169,7 @@ const main = async () => {
   // send(1, resultA)
   // send(2, resultB)
 
-  saveVisualizationData(input)
+  // saveVisualizationData(input)
 }
 
 main()

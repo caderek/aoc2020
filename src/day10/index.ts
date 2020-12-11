@@ -77,7 +77,7 @@ const goB = (adapters: number[]) => {
     }
   }
 
-  return String(graph.dfs(0))
+  return graph.dfs(0)
 }
 
 const main = async () => {
@@ -122,7 +122,7 @@ const main = async () => {
   `.trim(),
       ),
     ),
-    "8",
+    8,
   )
 
   /* Results */

@@ -1,4 +1,5 @@
 import { read, send, test } from "../../utils/index"
+import render from "./render"
 
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((x) => x.split(""))
@@ -38,7 +39,7 @@ const neighborsWithDiagonals = (x, y, grid, seeThroughGaps: boolean) => {
         i++
       }
     })
-    .filter((a) => a !== null)
+    .filter((a) => a === "#").length
 }
 
 const round = (input, maxOccupied, seeThroughGaps = false) => {
@@ -47,9 +48,7 @@ const round = (input, maxOccupied, seeThroughGaps = false) => {
       if (v === ".") {
         return v
       }
-      const n = neighborsWithDiagonals(x, y, input, seeThroughGaps).filter(
-        (a) => a === "#",
-      ).length
+      const n = neighborsWithDiagonals(x, y, input, seeThroughGaps)
 
       return v === "L" && n === 0 ? "#" : v === "#" && n > maxOccupied ? "L" : v
     }),
@@ -61,6 +60,7 @@ const goA = (rawInput: string) => {
 
   let prev = input
   while (true) {
+    // render(prev, "PART 1")
     const next = round(prev, 3)
 
     if (JSON.stringify(prev) === JSON.stringify(next)) {
@@ -75,6 +75,7 @@ const goB = (rawInput: string) => {
 
   let prev = input
   while (true) {
+    // render(prev, "PART 2")
     const next = round(prev, 4, true)
 
     if (JSON.stringify(prev) === JSON.stringify(next)) {

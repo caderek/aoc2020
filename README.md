@@ -135,7 +135,7 @@ Solution to part 2: 129586085429248
 
 day11
 ------------------------------
-Time: 542.576ms
+Time: 529.853ms
 Solution to part 1: 2166
 Solution to part 2: 1955
 ```

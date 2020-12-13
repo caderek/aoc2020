@@ -41,6 +41,12 @@ const mod = (a: bigint, b: bigint) => {
 /**
  * Congruences solution - Chinese remainder theorem
  *
+ * Solves x for:
+ * x mod modulus1 = remainder1
+ * x mod modulus2 = remainder2
+ * ...
+ * x mod modulusN = remainderN
+ *
  * @param congruences [modulus, remainder][]
  */
 const crt = (congruences: [bigint, bigint][]) => {

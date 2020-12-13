@@ -1,32 +1,4 @@
-import { read, send, test } from "../../utils/index"
-
-const gcd = (a: bigint, b: bigint) => {
-  let x = 1n
-  let y = 0n
-  let r = 0n
-  let s = 1n
-
-  while (b !== 0n) {
-    let c = a % b
-    let q = a / b
-    a = b
-    b = c
-
-    let rPrim = r
-    let sPrim = s
-    r = x - q * r
-    s = y - q * s
-    x = rPrim
-    y = sPrim
-  }
-
-  return { a, x, y }
-}
-
-const mod = (a: bigint, b: bigint) => {
-  const x = a % b
-  return x < 0n ? x + b : x
-}
+import { read, send, test, crypto } from "../../utils/index"
 
 const prepareInput = (rawInput: string) => {
   const [timestamp, schedule] = rawInput.split("\n")
@@ -36,7 +8,7 @@ const prepareInput = (rawInput: string) => {
     .filter(([val]) => val !== "x")
     .map(([val, i]: [string, number]) => {
       const bus = BigInt(val)
-      return { bus, rest: i === 0 ? 0n : bus - (BigInt(i) % bus) }
+      return [bus, i === 0 ? 0n : bus - (BigInt(i) % bus)]
     })
 
   return { timestamp: Number(timestamp), buses }
@@ -44,32 +16,21 @@ const prepareInput = (rawInput: string) => {
 
 const goA = (rawInput: string) => {
   const { timestamp, buses } = prepareInput(rawInput)
-  const departures = buses.map(
-    ({ bus }) => Math.ceil(timestamp / Number(bus)) * Number(bus),
-  )
-  const earliest = Math.min(...departures)
-  const index = departures.findIndex((x) => x === earliest)
 
-  return (earliest - timestamp) * Number(buses[index].bus)
+  const [bus, earliest] = buses
+    .map(([bus]) => {
+      const b = Number(bus)
+      return [b, Math.ceil(timestamp / b) * b]
+    })
+    .sort((a, b) => a[1] - b[1])[0]
+
+  return (earliest - timestamp) * bus
 }
 
 const goB = (rawInput: string) => {
   const { buses } = prepareInput(rawInput)
 
-  return String(
-    mod(
-      buses
-        .map(({ bus, rest }) => {
-          const N = buses
-            .filter((val) => val.bus !== bus)
-            .reduce((acc, val) => acc * val.bus, 1n)
-          const { x } = gcd(N, bus)
-          return rest * N * x
-        })
-        .reduce((a, b) => a + b),
-      buses.reduce((acc, val) => acc * val.bus, 1n),
-    ),
-  )
+  return String(crypto.crt(buses as [bigint, bigint][]))
 }
 
 const main = async () => {
@@ -115,12 +76,6 @@ const main = async () => {
     goB(`939
 1789,37,47,1889`),
     "1202161486",
-  )
-
-  test(
-    goB(`939
-3,x,x,x,x,x,x,x,x,x,x,x,x,5`),
-    "12",
   )
 
   /* Results */

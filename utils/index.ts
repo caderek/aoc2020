@@ -11,6 +11,7 @@ import numSys from "./num-sys"
 import * as gen from "generatorics"
 import { sendSolution } from "./api"
 import * as getCallerFile from "get-caller-file"
+import crypto from "./crypto"
 
 const log = (data) => console.dir(data, { colors: true, depth: 99 })
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -43,5 +44,6 @@ export {
   // grid,
   numSys,
   gen,
+  crypto,
 }
 export default { test, readInput }

@@ -23,9 +23,6 @@ const gcd = (a: bigint, b: bigint) => {
   return { a, x, y }
 }
 
-console.log(gcd(12n, 5n))
-console.log(gcd(5n, 12n))
-
 const mod = (a: bigint, b: bigint) => {
   const x = a % b
   return x < 0n ? x + b : x

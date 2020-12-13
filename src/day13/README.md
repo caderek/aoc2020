@@ -35,20 +35,20 @@ Which is pretty much exactly what CRT is for. Here are the steps to find the `x`
 
    1.2. From the [extended Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Extended_Euclidean_algorithm) extract the required parameter. In practice you should be able to use the extended GCD (greatest common divisor) function - you can find it in bigint crypto libraries, you can also implement it yourself quite trivially ([my code](https://github.com/caderek/aoc2020/blob/main/src/day13/index.ts#L3)). Here's how to use it:
 
-```js
-firstNumber = /* value from 1.a */;
-secondNumber = /* bus number */;
+   ```js
+   firstNumber = /* value from 1.a */;
+   secondNumber = /* bus number */;
 
-result = eGCD(firstNumber, secondNumber)
+   result = eGCD(firstNumber, secondNumber)
 
-// returns:
-//         [gcd, intForTheFirstNumber, intForTheSecondNumber]
-//               --------------------
-//                        ↑
-//                   we want this
-```
+   // returns:
+   //         [gcd, intForTheFirstNumber, intForTheSecondNumber]
+   //               --------------------
+   //                        ↑
+   //                   we want this
+   ```
 
-1.3. Multiply: `remainder * [result from 1.1] * [result from 1.2]`
+   1.3. Multiply: `remainder * [result from 1.1] * [result from 1.2]`
 
 2. Sum the results of 1.c for all buses.
 

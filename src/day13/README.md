@@ -8,11 +8,11 @@ The key to solving the second part in a non-brute-force way was to notice that t
 The second thing to notice was that the required departure differences can be transformed into remainders, for example:
 
 ```
-- BUS: 7  | DELAY: 0  | remainder: 0
-- BUS: 13 | Delay: 2  | remainder: 13 - 2 = 11
+- BUS: 7  | DELAY: 0  | REMAINDER: 0
+- BUS: 13 | DELAY: 2  | REMAINDER: 13 - 2 = 11
 
 Tricky case not to be found in the examples (delay longer than interval):
-- BUS: 19 | DELAY: 50 | remainder: 19 - (50 % 19) = 7
+- BUS: 19 | DELAY: 50 | REMAINDER: 19 - (50 % 19) = 7
 ```
 
 The third thing to notice was that the numbers can get really big, so the usual int type will not work here. Even JS/TS `number` type was too small (even though the result is below MAX_SAFE_INTEGER, the intermediate parts of the calculation can exceed it). `BigInt` for the rescue!

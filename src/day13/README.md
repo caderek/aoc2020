@@ -31,7 +31,7 @@ Which is pretty much exactly what CRT is for. Here are the steps to find the `x`
 
    1.1. Multiply all bus numbers **except** the current one
 
-   1.2. From the [extended Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Extended_Euclidean_algorithm) extract the required parameter. In practice you should be able to use the extended GCD (greatest common divisor) function - you can find it in bigint crypto libraries, you can also implement it yourself quite trivially ([my code](https://github.com/caderek/aoc2020/blob/main/src/day13/index.ts#L3)). Here's how to use it:
+   1.2. From the [extended Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm#Extended_Euclidean_algorithm) extract the required parameter. In practice you should be able to use the extended GCD (greatest common divisor) function - you can find it in bigint crypto libraries, you can also implement it yourself quite trivially ([my code](https://github.com/caderek/aoc2020/blob/main/utils/crypto.ts#L8)). Here's how to use it:
 
    ```js
    firstNumber = /* value from 1.1 */;
@@ -54,4 +54,4 @@ Which is pretty much exactly what CRT is for. Here are the steps to find the `x`
 
 3. Multiply all **bus numbers** (this time without exceptions).
 
-4. Calculate the modulo of **pt. 2** and **pt. 3**. WARNING: In JS/TS the `%` is not the modulo operator, just the remainder operator. To get the actual modulo, you have to add the modulus to the result if the result is lower than 0 (see: [mod](https://github.com/caderek/aoc2020/blob/main/src/day13/index.ts#L26)). That's it - that's our `x`!
+4. Calculate the modulo of **pt. 2** and **pt. 3**. WARNING: In JS/TS the `%` is not the modulo operator, just the remainder operator. To get the actual modulo, you have to add the modulus to the result if the result is lower than 0 (see: [mod](https://github.com/caderek/aoc2020/blob/main/utils/crypto.ts#L37)). That's it - that's our `x`!

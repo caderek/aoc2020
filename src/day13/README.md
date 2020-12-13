@@ -50,7 +50,7 @@ Which is pretty much exactly what CRT is for. Here are the steps to find the `x`
 
    1.3. Multiply: `remainder * [result from 1.1] * [result from 1.2]`
 
-2. Sum the results of 1.c for all buses.
+2. Sum the results of `1.3` for all buses.
 
 3. Multiply all **bus numbers** (this time without exceptions).
 

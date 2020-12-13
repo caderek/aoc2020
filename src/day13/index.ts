@@ -20,7 +20,7 @@ const gcd = (a: bigint, b: bigint) => {
     y = sPrim
   }
 
-  return [a, x, y]
+  return { a, x, y }
 }
 
 const mod = (a: bigint, b: bigint) => {
@@ -32,10 +32,10 @@ const prepareInput = (rawInput: string) => {
   const [timestamp, schedule] = rawInput.split("\n")
   const buses = schedule
     .split(",")
-    .map((v, i) => [v, i])
-    .filter(([v]) => v !== "x")
-    .map(([v, i]: [string, number]) => {
-      const bus = BigInt(v)
+    .map((val, i) => [val, i])
+    .filter(([val]) => val !== "x")
+    .map(([val, i]: [string, number]) => {
+      const bus = BigInt(val)
       return { bus, rest: i === 0 ? 0n : bus - (BigInt(i) % bus) }
     })
 
@@ -61,13 +61,13 @@ const goB = (rawInput: string) => {
       buses
         .map(({ bus, rest }) => {
           const N = buses
-            .filter((x) => x.bus !== bus)
-            .reduce((acc, x) => acc * x.bus, 1n)
-          const [_, M] = gcd(N, bus)
-          return rest * N * M
+            .filter((val) => val.bus !== bus)
+            .reduce((acc, val) => acc * val.bus, 1n)
+          const { x } = gcd(N, bus)
+          return rest * N * x
         })
         .reduce((a, b) => a + b),
-      buses.reduce((acc, x) => acc * x.bus, 1n),
+      buses.reduce((acc, val) => acc * val.bus, 1n),
     ),
   )
 }

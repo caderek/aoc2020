@@ -1,3 +1,10 @@
+/**
+ * Extended greatest common divisor
+ * Euclid's algorithm
+ *
+ * @param a paired with x in output
+ * @param b paired with y in output
+ */
 const egcd = (a: bigint, b: bigint) => {
   let x = 1n
   let y = 0n
@@ -21,23 +28,32 @@ const egcd = (a: bigint, b: bigint) => {
   return { a, x, y }
 }
 
+/**
+ * Modulo for two numbers
+ * @param a base
+ * @param b modulus
+ */
 const mod = (a: bigint, b: bigint) => {
   const x = a % b
   return x < 0n ? x + b : x
 }
 
+/**
+ * Congruences solution - Chinese remainder theorem
+ *
+ * @param congruences [modulus, remainder][]
+ */
 const crt = (congruences: [bigint, bigint][]) => {
   return mod(
     congruences
-      .map(([bus, rest]) => {
+      .map(([modulus, remainder]) => {
         const N = congruences
-          .filter(([currBus]) => currBus !== bus)
-          .reduce((acc, [bus]) => acc * bus, 1n)
-        const { x } = egcd(N, bus)
-        return rest * N * x
+          .filter(([currBus]) => currBus !== modulus)
+          .reduce((acc, [modulus]) => acc * modulus, 1n)
+        return remainder * N * egcd(N, modulus).x
       })
       .reduce((a, b) => a + b),
-    congruences.reduce((acc, [bus]) => acc * bus, 1n),
+    congruences.reduce((acc, [modulus]) => acc * modulus, 1n),
   )
 }
 

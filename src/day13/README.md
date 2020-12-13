@@ -21,7 +21,7 @@ The fourth thing is connecting the dots that our `x` (timestamp) can be describe
 
 ```
 x mod 7 = 0
-x mod 13 = 2
+x mod 13 = 11
 x mod 19 = 7
 ```
 

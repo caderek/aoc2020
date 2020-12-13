@@ -29,7 +29,8 @@ const egcd = (a: bigint, b: bigint) => {
 }
 
 /**
- * Modulo for two numbers
+ * Modulo
+ *
  * @param a base
  * @param b modulus
  */

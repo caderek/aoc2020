@@ -1,10 +1,4 @@
-import { read, send, test, math } from "../../utils/index"
-
-console.log(math.lcm(2, 3), 3 * 3)
-console.log(math.lcm(7, 9), 7 * 9)
-console.log(math.lcm(11, 13), 11 * 13)
-console.log(math.lcm(6, 63), 6 * 63)
-console.log(math.lcm(63, 143), 63 * 143)
+import { read, send, test } from "../../utils/index"
 
 const gcd = (a: bigint, b: bigint) => {
   let x = 1n

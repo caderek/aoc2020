@@ -3,9 +3,7 @@
 Used [Chinese remainder theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem),
 explanation below.
 
-The key to solving the second part in a non-brute-force way was to notice that the bus numbers were **prime numbers**. It's not strictly required for this method to work, they have to be at least coprime, but I believe they are all prime numbers.
-
-If the task was to find when buses will all arrive at the same time, it would be trivial - it would be LCM (least common multiple), which for prime numbers is just multiplying them all together. Bu the task wasn't that simple.
+The key to solving the second part in a non-brute-force way was to notice that the bus numbers were **prime numbers**. It's not strictly required for this method to work, they have to be at least coprime, but I believe they are all prime numbers (at least my input was).
 
 The second thing to notice was that the required departure differences can be transformed into remainders, for example:
 

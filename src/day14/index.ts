@@ -12,7 +12,6 @@ const prepareInput = (rawInput: string) =>
 
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
-
   const memory: Map<number, number> = new Map()
 
   let mask0 = []
@@ -37,8 +36,6 @@ const goA = (rawInput: string) => {
 
 const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
-  const size = 2 ** 36
-
   const memory: Map<number, number> = new Map()
 
   let mask = []

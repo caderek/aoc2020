@@ -1,10 +1,5 @@
 import { read, send, test } from "../../utils/index"
 
-const mod = (a: number, b: number) => {
-  const x = a % b
-  return x < 0 ? x + b : x
-}
-
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((x) =>
     x.startsWith("mask")
@@ -17,7 +12,6 @@ const prepareInput = (rawInput: string) =>
 
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
-  const size = 2 ** 36
 
   const memory: Map<number, number> = new Map()
 
@@ -25,20 +19,16 @@ const goA = (rawInput: string) => {
   let mask1 = []
 
   input.forEach((item) => {
-    if (!Array.isArray(item)) {
+    if (typeof item === "string") {
       const mask = item as string
       mask0 = mask.replace(/X/g, "1").split("").map(Number)
       mask1 = mask.replace(/X/g, "0").split("").map(Number)
     } else {
       const [address, value] = item as [number, number]
-      const val = mod(value, size)
-        .toString(2)
-        .padStart(36, "0")
-        .split("")
-        .map(Number)
+      const val = value.toString(2).padStart(36, "0").split("").map(Number)
       const result = val.map((v, i) => (v | mask1[i]) & mask0[i]).join("")
 
-      memory.set(mod(address, size), parseInt(result, 2))
+      memory.set(address, parseInt(result, 2))
     }
   })
 
@@ -55,16 +45,12 @@ const goB = (rawInput: string) => {
   let floats = []
 
   input.forEach((item) => {
-    if (!Array.isArray(item)) {
+    if (typeof item === "string") {
       mask = item.replace(/X/g, "0").split("").map(Number)
       floats = [...item.matchAll(/X/g)].map((x) => x.index)
     } else {
       const [address, value] = item as [number, number]
-      const addr = mod(address, size)
-        .toString(2)
-        .padStart(36, "0")
-        .split("")
-        .map(Number)
+      const addr = address.toString(2).padStart(36, "0").split("").map(Number)
 
       const result = addr.map((v, i) => v | mask[i])
 
@@ -77,7 +63,7 @@ const goB = (rawInput: string) => {
           })
 
         const addressN = parseInt(result.join(""), 2)
-        memory.set(mod(addressN, size), mod(value, size))
+        memory.set(addressN, value)
       }
     }
   })
@@ -120,8 +106,8 @@ mem[26] = 1`.trim(),
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)
 
-  // send(1, resultA)
-  // send(2, resultB)
+  // send(1, resultA) // -> 9879607673316
+  // send(2, resultB) // -> 3435342392262
 }
 
 main()

@@ -7,7 +7,7 @@ const prepareInput = (rawInput: string) =>
       : x
           .match(/mem\[(\d+)\] \= (\d+)/)
           .slice(1)
-          .map((x) => Number(x)),
+          .map(Number),
   )
 
 const goA = (rawInput: string) => {

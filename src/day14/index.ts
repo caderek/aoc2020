@@ -49,18 +49,18 @@ const goB = (rawInput: string) => {
       const combinationsSize = 2 ** floatsPos.length
 
       for (let i = 0n; i < combinationsSize; i++) {
-        let mask = 0n
+        let maskXOR = 0n
 
         floatsPos.forEach((pos, index) => {
           const pow = BigInt(index)
           const isOn = (i & (2n ** pow)) !== 0n
 
           if (isOn) {
-            mask |= 1n << (36n - pos - 1n)
+            maskXOR |= 1n << (36n - pos - 1n)
           }
         })
 
-        memory.set(addr ^ mask, value)
+        memory.set(addr ^ maskXOR, value)
       }
     }
   })

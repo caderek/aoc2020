@@ -153,7 +153,7 @@ Solution to part 2: 247086664214628
 
 day14
 ------------------------------
-Time: 259.964ms
+Time: 197.134ms
 Solution to part 1: 9879607673316
 Solution to part 2: 3435342392262
 ```

@@ -16,6 +16,8 @@ const toSingeBits = (
   mapFn: (val: string, index: number) => any = Number,
 ) => Array.from(val.toString(2).padStart(size, "0"), mapFn)
 
+const toNum = (bits: number[]) => parseInt(bits.join(""), 2)
+
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
   const memory: Map<number, number> = new Map()
@@ -27,14 +29,13 @@ const goA = (rawInput: string) => {
     const mapFn = (v: string, i: number) => (Number(v) | maskOR[i]) & maskAND[i]
 
     if (typeof item === "string") {
-      const mask = item as string
-      maskAND = mask.replace(/X/g, "1").split("").map(Number)
-      maskOR = mask.replace(/X/g, "0").split("").map(Number)
+      maskAND = Array.from(item.replace(/X/g, "1"), Number)
+      maskOR = Array.from(item.replace(/X/g, "0"), Number)
     } else {
       const [address, value] = item as [number, number]
-      const val = toSingeBits(value, 36, mapFn).join("")
+      const val = toNum(toSingeBits(value, 36, mapFn))
 
-      memory.set(address, parseInt(val, 2))
+      memory.set(address, val)
     }
   })
 
@@ -50,7 +51,7 @@ const goB = (rawInput: string) => {
 
   input.forEach((item) => {
     if (typeof item === "string") {
-      maskOR = item.replace(/X/g, "0").split("").map(Number)
+      maskOR = Array.from(item.replace(/X/g, "0"), Number)
       floats = Array.from(item.matchAll(/X/g), (x) => x.index)
     } else {
       const [address, value] = item as [number, number]
@@ -60,7 +61,7 @@ const goB = (rawInput: string) => {
       for (let i = 0; i < combinationsSize; i++) {
         toSingeBits(i, floats.length, (v, i) => (addr[floats[i]] = Number(v)))
 
-        memory.set(parseInt(addr.join(""), 2), value)
+        memory.set(toNum(addr), value)
       }
     }
   })

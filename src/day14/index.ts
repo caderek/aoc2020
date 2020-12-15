@@ -7,66 +7,65 @@ const prepareInput = (rawInput: string) =>
       : x
           .match(/mem\[(\d+)\] \= (\d+)/)
           .slice(1)
-          .map(Number),
+          .map(BigInt),
   )
-
-const toSingeBits = (
-  val: number,
-  size: number,
-  mapFn: (val: string, index: number) => any = Number,
-) => Array.from(val.toString(2).padStart(size, "0"), mapFn)
-
-const toNum = (bits: number[]) => parseInt(bits.join(""), 2)
 
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
-  const memory: Map<number, number> = new Map()
+  const memory: Map<bigint, bigint> = new Map()
 
-  let maskAND = []
-  let maskOR = []
+  let maskAND = 0n
+  let maskOR = 0n
 
   input.forEach((item) => {
-    const mapFn = (v: string, i: number) => (Number(v) | maskOR[i]) & maskAND[i]
-
     if (typeof item === "string") {
-      maskAND = Array.from(item.replace(/X/g, "1"), Number)
-      maskOR = Array.from(item.replace(/X/g, "0"), Number)
+      maskAND = BigInt(parseInt(item.replace(/X/g, "1"), 2))
+      maskOR = BigInt(parseInt(item.replace(/X/g, "0"), 2))
     } else {
-      const [address, value] = item as [number, number]
-      const val = toNum(toSingeBits(value, 36, mapFn))
+      const [address, value] = item
+      const val = (value | maskOR) & maskAND
 
       memory.set(address, val)
     }
   })
 
-  return [...memory.values()].reduce((a, b) => a + b)
+  return Number([...memory.values()].reduce((a, b) => a + b))
 }
 
 const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
-  const memory: Map<number, number> = new Map()
+  const memory: Map<bigint, bigint> = new Map()
 
-  let maskOR = []
-  let floats = []
+  let maskOR = 0n
+  let floatsPos = []
 
   input.forEach((item) => {
     if (typeof item === "string") {
-      maskOR = Array.from(item.replace(/X/g, "0"), Number)
-      floats = Array.from(item.matchAll(/X/g), (x) => x.index)
+      maskOR = BigInt(parseInt(item.replace(/X/g, "0"), 2))
+      floatsPos = Array.from(item.matchAll(/X/g), (x) => BigInt(x.index))
     } else {
-      const [address, value] = item as [number, number]
-      const addr = toSingeBits(address, 36, (v, i) => Number(v) | maskOR[i])
-      const combinationsSize = 2 ** floats.length
+      const [address, value] = item
+      const addr = address | maskOR
+      const combinationsSize = 2 ** floatsPos.length
 
-      for (let i = 0; i < combinationsSize; i++) {
-        toSingeBits(i, floats.length, (v, i) => (addr[floats[i]] = Number(v)))
+      for (let i = 0n; i < combinationsSize; i++) {
+        let mask = 0n
 
-        memory.set(toNum(addr), value)
+        floatsPos.forEach((pos, index) => {
+          const pow = BigInt(index)
+          const isOn = (i & (2n ** pow)) !== 0n
+
+          if (isOn) {
+            mask |= 1n << (36n - pos - 1n)
+          }
+        })
+
+        memory.set(addr ^ mask, value)
       }
     }
   })
 
-  return [...memory.values()].reduce((a, b) => a + b)
+  return Number([...memory.values()].reduce((a, b) => a + b))
 }
 
 const main = async () => {
@@ -75,9 +74,9 @@ const main = async () => {
   test(
     goA(
       `mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
-  mem[8] = 11
-  mem[7] = 101
-  mem[8] = 0`.trim(),
+mem[8] = 11
+mem[7] = 101
+mem[8] = 0`.trim(),
     ),
     165,
   )

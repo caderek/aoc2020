@@ -1,35 +1,24 @@
-import { read, send } from "../../utils/index"
+import { read, test, send } from "../../utils/index"
 
 const prepareInput = (rawInput: string) => rawInput.split(",").map(Number)
 
 const go = (rawInput: string, maxTurn: number) => {
   const input = prepareInput(rawInput)
-  let turn = input.length
+  const previous = input.slice(0, -1)
+
   let last = input[input.length - 1]
+  let turn = previous.length + 1
 
-  const turnsPerNum: Map<number, number[]> = new Map()
-
-  input.forEach((num, index) => turnsPerNum.set(num, [index + 1]))
-
-  const speak = (num: number) => {
-    last = num
-    if (turnsPerNum.has(num)) {
-      const val = turnsPerNum.get(num)
-      turnsPerNum.set(num, val.slice(-1).concat(turn))
-    } else {
-      turnsPerNum.set(num, [turn])
-    }
-  }
+  const turnsPerNum: Map<number, number> = new Map(
+    previous.map((x, i) => [x, i + 1]),
+  )
 
   while (turn < maxTurn) {
-    turn++
+    const val = turnsPerNum.get(last)
 
-    if (turnsPerNum.get(last).length === 1) {
-      speak(0)
-    } else {
-      const val = turnsPerNum.get(last)
-      speak(val[1] - val[0])
-    }
+    turnsPerNum.set(last, turn)
+    last = val === undefined ? 0 : turn - val
+    turn++
   }
 
   return last
@@ -37,6 +26,8 @@ const go = (rawInput: string, maxTurn: number) => {
 
 const main = async () => {
   /* Results */
+
+  test(go("0,3,6", 2020), 436)
 
   const input = read()
 

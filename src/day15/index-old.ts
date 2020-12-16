@@ -8,13 +8,14 @@ const go = (rawInput: string, maxTurn: number) => {
   let last = input[input.length - 1]
   let turn = input.length
 
-  const turnsPerNum = new Array(maxTurn)
-  input.slice(0, -1).forEach((x, i) => (turnsPerNum[x] = i + 1))
+  const turnsPerNum: Map<number, number> = new Map(
+    input.slice(0, -1).map((x, i) => [x, i + 1]),
+  )
 
   while (turn < maxTurn) {
-    const val = turnsPerNum[last]
+    const val = turnsPerNum.get(last)
 
-    turnsPerNum[last] = turn
+    turnsPerNum.set(last, turn)
     last = val ? turn - val : 0
     turn++
   }

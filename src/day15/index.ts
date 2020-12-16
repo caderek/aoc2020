@@ -25,9 +25,12 @@ const go = (rawInput: string, maxTurn: number) => {
 }
 
 const main = async () => {
-  /* Results */
+  /* Tests */
 
   test(go("0,3,6", 2020), 436)
+  test(go("1,3,2", 2020), 1)
+
+  /* Results */
 
   const input = read()
 

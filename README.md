@@ -75,91 +75,91 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 366.848ms
+Time: 363.494ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 7.145ms
+Time: 6.922ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 0.884ms
+Time: 0.870ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 8.648ms
+Time: 8.922ms
 Solution to part 1: 242
 Solution to part 2: 186
 
 day05
 ------------------------------
-Time: 2.688ms
+Time: 2.590ms
 Solution to part 1: 935
 Solution to part 2: 743
 
 day06
 ------------------------------
-Time: 5.084ms
+Time: 4.871ms
 Solution to part 1: 6596
 Solution to part 2: 3219
 
 day07
 ------------------------------
-Time: 5.066ms
+Time: 5.991ms
 Solution to part 1: 355
 Solution to part 2: 5312
 
 day08
 ------------------------------
-Time: 78.874ms
+Time: 77.404ms
 Solution to part 1: 1337
 Solution to part 2: 1358
 
 day09
 ------------------------------
-Time: 10.346ms
+Time: 10.439ms
 Solution to part 1: 507622668
 Solution to part 2: 76688505
 
 day10
 ------------------------------
-Time: 0.300ms
+Time: 0.422ms
 Solution to part 1: 2376
 Solution to part 2: 129586085429248
 
 day11
 ------------------------------
-Time: 529.853ms
+Time: 546.212ms
 Solution to part 1: 2166
 Solution to part 2: 1955
 
 day12
 ------------------------------
-Time: 3.348ms
+Time: 2.980ms
 Solution to part 1: 1589
 Solution to part 2: 23960
 
 day13
 ------------------------------
-Time: 0.258ms
+Time: 0.289ms
 Solution to part 1: 1835
 Solution to part 2: 247086664214628
 
 day14
 ------------------------------
-Time: 197.134ms
+Time: 198.846ms
 Solution to part 1: 9879607673316
 Solution to part 2: 3435342392262
 
 day15
 ------------------------------
-Time: 548.802ms
+Time: 592.872ms
 Solution to part 1: 319
 Solution to part 2: 2424
 
@@ -168,4 +168,8 @@ day16
 Time: 11.863ms
 Solution to part 1: 25895
 Solution to part 2: 5865723727753
+```
+
+```
+Total time: 1834.987ms
 ```

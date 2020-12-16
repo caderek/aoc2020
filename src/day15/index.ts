@@ -4,13 +4,12 @@ const prepareInput = (rawInput: string) => rawInput.split(",").map(Number)
 
 const go = (rawInput: string, maxTurn: number) => {
   const input = prepareInput(rawInput)
-  const previous = input.slice(0, -1)
 
   let last = input[input.length - 1]
-  let turn = previous.length + 1
+  let turn = input.length
 
   const turnsPerNum: Map<number, number> = new Map(
-    previous.map((x, i) => [x, i + 1]),
+    input.slice(0, -1).map((x, i) => [x, i + 1]),
   )
 
   while (turn < maxTurn) {

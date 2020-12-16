@@ -33,8 +33,8 @@ const main = async () => {
   const input = read()
 
   console.time("Time")
-  const resultA = await go(input, 2020)
-  const resultB = await go(input, 30000000)
+  const resultA = go(input, 2020)
+  const resultB = go(input, 30000000)
   console.timeEnd("Time")
 
   console.log("Solution to part 1:", resultA)

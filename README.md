@@ -159,7 +159,7 @@ Solution to part 2: 3435342392262
 
 day15
 ------------------------------
-Time: 734.315ms
+Time: 548.802ms
 Solution to part 1: 319
 Solution to part 2: 2424
 

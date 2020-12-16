@@ -8,7 +8,7 @@ const go = (rawInput: string, maxTurn: number) => {
   let last = input[input.length - 1]
   let turn = input.length
 
-  const turnsPerNum = new Array(maxTurn)
+  const turnsPerNum = new Uint32Array(maxTurn)
   input.slice(0, -1).forEach((x, i) => (turnsPerNum[x] = i + 1))
 
   while (turn < maxTurn) {

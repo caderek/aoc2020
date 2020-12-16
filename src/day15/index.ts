@@ -16,7 +16,7 @@ const go = (rawInput: string, maxTurn: number) => {
     const val = turnsPerNum.get(last)
 
     turnsPerNum.set(last, turn)
-    last = val === undefined ? 0 : turn - val
+    last = val ? turn - val : 0
     turn++
   }
 

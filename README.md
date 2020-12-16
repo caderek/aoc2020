@@ -165,7 +165,7 @@ Solution to part 2: 2424
 
 day16
 ------------------------------
-Time: 18.441ms
+Time: 11.863ms
 Solution to part 1: 25895
 Solution to part 2: 5865723727753
 ```

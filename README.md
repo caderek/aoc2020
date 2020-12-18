@@ -40,7 +40,7 @@ Code:
 
 ## Installation
 
-Required: Node 12 or higher ([download](https://nodejs.org/en/download/))
+Required: Node 14 or higher ([download](https://nodejs.org/en/download/))
 
 ```
 npm i
@@ -75,107 +75,113 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 363.494ms
+Time: 392.782ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 6.922ms
+Time: 7.266ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 0.870ms
+Time: 1.108ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 8.922ms
+Time: 13.849ms
 Solution to part 1: 242
 Solution to part 2: 186
 
 day05
 ------------------------------
-Time: 2.590ms
+Time: 2.135ms
 Solution to part 1: 935
 Solution to part 2: 743
 
 day06
 ------------------------------
-Time: 4.871ms
+Time: 5.067ms
 Solution to part 1: 6596
 Solution to part 2: 3219
 
 day07
 ------------------------------
-Time: 5.991ms
+Time: 5.502ms
 Solution to part 1: 355
 Solution to part 2: 5312
 
 day08
 ------------------------------
-Time: 77.404ms
+Time: 73.087ms
 Solution to part 1: 1337
 Solution to part 2: 1358
 
 day09
 ------------------------------
-Time: 10.439ms
+Time: 10.053ms
 Solution to part 1: 507622668
 Solution to part 2: 76688505
 
 day10
 ------------------------------
-Time: 0.422ms
+Time: 0.344ms
 Solution to part 1: 2376
 Solution to part 2: 129586085429248
 
 day11
 ------------------------------
-Time: 546.212ms
+Time: 526.879ms
 Solution to part 1: 2166
 Solution to part 2: 1955
 
 day12
 ------------------------------
-Time: 2.980ms
+Time: 2.89ms
 Solution to part 1: 1589
 Solution to part 2: 23960
 
 day13
 ------------------------------
-Time: 0.289ms
+Time: 0.293ms
 Solution to part 1: 1835
 Solution to part 2: 247086664214628
 
 day14
 ------------------------------
-Time: 198.846ms
+Time: 191.847ms
 Solution to part 1: 9879607673316
 Solution to part 2: 3435342392262
 
 day15
 ------------------------------
-Time: 592.872ms
+Time: 562.98ms
 Solution to part 1: 319
 Solution to part 2: 2424
 
 day16
 ------------------------------
-Time: 11.863ms
+Time: 11.201ms
 Solution to part 1: 25895
 Solution to part 2: 5865723727753
 
 day17
 ------------------------------
-Time: 882.289ms
+Time: 1.023s
 Solution to part 1: 232
 Solution to part 2: 1620
+
+day18
+------------------------------
+Time: 13.12ms
+Solution to part 1: 5374004645253
+Solution to part 2: 88782789402798
 ```
 
 ```
-Total time: 1834.987ms
+Total time: 1820.403ms
 ```

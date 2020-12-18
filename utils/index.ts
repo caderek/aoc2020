@@ -6,12 +6,12 @@ import * as math from "mathjs"
 import * as R from "ramda"
 import * as graph from "graphlib"
 import { isDeepStrictEqual } from "util"
-// import grid from "./grid"
+import grid from "./grid"
 import numSys from "./num-sys"
 import * as gen from "generatorics"
 import { sendSolution } from "./api"
 import * as getCallerFile from "get-caller-file"
-// import crypto from "./crypto"
+import crypto from "./crypto"
 
 const log = (data) => console.dir(data, { colors: true, depth: 99 })
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -41,9 +41,9 @@ export {
   log,
   delay,
   equal,
-  // grid,
+  grid,
   numSys,
   gen,
-  // crypto,
+  crypto,
 }
 export default { test, readInput }

@@ -1,18 +1,4 @@
-import {
-  read,
-  send,
-  test,
-  arr,
-  com,
-  mul,
-  dis,
-  math,
-  R,
-  graph,
-  log,
-  equal,
-  gen,
-} from "../../utils/index"
+import { read, send, test } from "../../utils/index"
 
 const prepareInput = (rawInput: string) => rawInput.split("\n")
 

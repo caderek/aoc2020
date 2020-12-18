@@ -11,6 +11,13 @@ const evaluate = (expression, precedence) => {
   const ops = []
   const nums = []
 
+  const calc = () => {
+    const op = ops.pop()
+    const b = nums.pop()
+    const a = nums.pop()
+    nums.push(operations[op](a, b))
+  }
+
   for (const char of expression) {
     if (char === " ") {
       continue
@@ -28,10 +35,7 @@ const evaluate = (expression, precedence) => {
 
     if (char === ")") {
       while (ops.length > 0 && ops[ops.length - 1] !== "(") {
-        const op = ops.pop()
-        const b = nums.pop()
-        const a = nums.pop()
-        nums.push(operations[op](a, b))
+        calc()
       }
       ops.pop()
       continue
@@ -41,20 +45,14 @@ const evaluate = (expression, precedence) => {
       ops.length > 0 &&
       precedence[ops[ops.length - 1]] >= precedence[char]
     ) {
-      const op = ops.pop()
-      const b = nums.pop()
-      const a = nums.pop()
-      nums.push(operations[op](a, b))
+      calc()
     }
 
     ops.push(char)
   }
 
   while (ops.length > 0) {
-    const op = ops.pop()
-    const b = nums.pop()
-    const a = nums.pop()
-    nums.push(operations[op](a, b))
+    calc()
   }
 
   return nums[0]

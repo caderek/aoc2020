@@ -102,6 +102,11 @@ const stripBorders = (pixels: string[][]) => {
   return pixels.slice(1, -1).map((row) => row.slice(1, -1))
 }
 
+const commonPart = (arr1: any[], arr2: any[]) => {
+  const set = new Set(arr2)
+  return arr1.filter((x) => set.has(x))
+}
+
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
   const withNeighbors = getNeighbors(input)
@@ -111,11 +116,6 @@ const goA = (rawInput: string) => {
     .map((x) => x.id)
 
   return corners.reduce((a, b) => a * b)
-}
-
-const commonPart = (arr1: any[], arr2: any[]) => {
-  const set = new Set(arr2)
-  return arr1.filter((x) => set.has(x))
 }
 
 const goB = (rawInput: string) => {

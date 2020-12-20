@@ -193,7 +193,3 @@ Time: 142.125ms
 Solution to part 1: 59187348943703
 Solution to part 2: 1565
 ```
-
-```
-Total time: 1820.403ms
-```

@@ -463,7 +463,7 @@ Tile 3079:
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)
 
-  // send(1, "59187348943703")
+  // send(1, resultA)
   // send(2, resultB)
 }
 

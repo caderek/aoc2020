@@ -22,7 +22,7 @@
 [![Day](https://badgen.net/badge/18/%E2%98%85%E2%98%85/blue)](src/day18)
 [![Day](https://badgen.net/badge/19/%E2%98%85%E2%98%86/yellow)](src/day19)
 [![Day](https://badgen.net/badge/20/%E2%98%85%E2%98%85/blue)](src/day20)
-[![Day](https://badgen.net/badge/21/%E2%98%86%E2%98%86/gray)](src/day21)
+[![Day](https://badgen.net/badge/21/%E2%98%85%E2%98%85/blue)](src/day21)
 [![Day](https://badgen.net/badge/22/%E2%98%86%E2%98%86/gray)](src/day22)
 [![Day](https://badgen.net/badge/23/%E2%98%86%E2%98%86/gray)](src/day23)
 [![Day](https://badgen.net/badge/24/%E2%98%86%E2%98%86/gray)](src/day24)
@@ -75,121 +75,126 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 392.782ms
+Time: 369.828ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 7.266ms
+Time: 7.534ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 1.108ms
+Time: 1.027ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 13.849ms
+Time: 10.766ms
 Solution to part 1: 242
 Solution to part 2: 186
 
 day05
 ------------------------------
-Time: 2.135ms
+Time: 2.256ms
 Solution to part 1: 935
 Solution to part 2: 743
 
 day06
 ------------------------------
-Time: 5.067ms
+Time: 4.99ms
 Solution to part 1: 6596
 Solution to part 2: 3219
 
 day07
 ------------------------------
-Time: 5.502ms
+Time: 5.513ms
 Solution to part 1: 355
 Solution to part 2: 5312
 
 day08
 ------------------------------
-Time: 73.087ms
+Time: 74.395ms
 Solution to part 1: 1337
 Solution to part 2: 1358
 
 day09
 ------------------------------
-Time: 10.053ms
+Time: 13.919ms
 Solution to part 1: 507622668
 Solution to part 2: 76688505
 
 day10
 ------------------------------
-Time: 0.344ms
+Time: 0.362ms
 Solution to part 1: 2376
 Solution to part 2: 129586085429248
 
 day11
 ------------------------------
-Time: 526.879ms
+Time: 528.374ms
 Solution to part 1: 2166
 Solution to part 2: 1955
 
 day12
 ------------------------------
-Time: 2.89ms
+Time: 2.78ms
 Solution to part 1: 1589
 Solution to part 2: 23960
 
 day13
 ------------------------------
-Time: 0.293ms
+Time: 0.281ms
 Solution to part 1: 1835
 Solution to part 2: 247086664214628
 
 day14
 ------------------------------
-Time: 191.847ms
+Time: 194.614ms
 Solution to part 1: 9879607673316
 Solution to part 2: 3435342392262
 
 day15
 ------------------------------
-Time: 562.98ms
+Time: 617.317ms
 Solution to part 1: 319
 Solution to part 2: 2424
 
 day16
 ------------------------------
-Time: 11.201ms
+Time: 11.091ms
 Solution to part 1: 25895
 Solution to part 2: 5865723727753
 
 day17
 ------------------------------
-Time: 1.023s
+Time: 1.050s
 Solution to part 1: 232
 Solution to part 2: 1620
 
 day18
 ------------------------------
-Time: 13.12ms
+Time: 14.03ms
 Solution to part 1: 5374004645253
 Solution to part 2: 88782789402798
 
 day19
 ------------------------------
-Time: 110.438ms (part 1)
-Solution to part 1: 174
-Solution to part 2: --
+Time: 96.711ms (part 1)
+Solution to part 1: 147
 
 day20
 ------------------------------
-Time: 142.125ms
+Time: 138.467ms
 Solution to part 1: 59187348943703
 Solution to part 2: 1565
+
+day21
+------------------------------
+Time: 2.316ms
+Solution to part 1: 2436
+Solution to part 2: dhfng,pgblcd,xhkdc,ghlzj,dstct,nqbnmzx,ntggc,znrzgs
 ```

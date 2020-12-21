@@ -57,6 +57,7 @@ const goB = (rawInput: string) => {
     .replace("11: 42 31", "11: 42 31 | 42 11 31")
 
   const grammar = prepareGrammar(updatedRules)
+  // console.log(grammar)
   const parser = peg.generate(grammar)
 
   const correct = codes.filter((code) => {
@@ -146,12 +147,12 @@ aabbbbbaabbbaaaaaabbbbbababaaaaabbaaabba`),
   const input = read()
 
   console.time("Time")
-  // const resultA = await goA(input)
-  const resultB = await goB(input)
+  const resultA = await goA(input)
+  // const resultB = await goB(input)
   console.timeEnd("Time")
 
-  // console.log("Solution to part 1:", resultA)
-  console.log("Solution to part 2:", resultB)
+  console.log("Solution to part 1:", resultA)
+  // console.log("Solution to part 2:", resultB)
 
   // send(1, resultA)
   // send(2, resultB) // 263

@@ -1,76 +1,78 @@
-import logUpdate = require("log-update")
-import {
-  read,
-  send,
-  test,
-  arr,
-  com,
-  mul,
-  dis,
-  math,
-  R,
-  graph,
-  log,
-  equal,
-  gen,
-} from "../../utils/index"
-
-// const prepareInput = (rawInput: string) => {
-//   const [rawRules, rawCodes] = rawInput.split("\n\n")
-//   const rules = rawRules.split("\n").map((rawRule) => {
-//     const [num, rawLinks] = rawRule.split(": ")
-//     const links =
-//       rawLinks === '"a"'
-//         ? "a"
-//         : rawLinks === '"b"'
-//         ? "b"
-//         : rawLinks.split(" | ").map((x) => x.split(" ").map(Number))
-//     return [Number(num), links]
-//   }) as [number, string | number[][]][]
-
-//   const codes = rawCodes.split("\n").map((line) => line.split(""))
-
-//   return { rules: new Map(rules.sort((a, b) => a[0] - b[0])), codes }
-// }
+import { read, test } from "../../utils/index"
+import * as peg from "pegjs"
 
 const prepareInput = (rawInput: string) => {
-  const [rawRules, rawCodes] = rawInput.split("\n\n")
-  const rules = rawRules.split("\n").map((rawRule) => rawRule.split(": "))
+  const [rules, rawCodes] = rawInput.split("\n\n")
 
-  const codes = rawCodes.split("\n").map((line) => line.split(""))
+  return { rules, codes: rawCodes.split("\n") }
+}
 
-  return { rules, codes }
+const prepareGrammar = (rules) => {
+  return rules
+    .split("\n")
+    .map((rule) => rule.split(": "))
+    .map(([id, rest]) =>
+      [
+        `r${id}`,
+        rest.match(/\d+/) !== null
+          ? rest
+              .split(" | ")
+              .map((x) =>
+                x
+                  .split(" ")
+                  .map((x) => `r${x}`)
+                  .join(" "),
+              )
+              .join(" / ")
+          : rest,
+      ].join(" = "),
+    )
+    .sort()
+    .join("\n")
 }
 
 const goA = (rawInput: string) => {
-  const { rules, codes } = prepareInput(rawInput)
-  console.log(rawInput)
-  console.log(rules)
+  let { rules, codes } = prepareInput(rawInput)
 
-  const aIndex = rules.find((rule) => rule[1] === '"a"')[0]
-  const bIndex = rules.find((rule) => rule[1] === '"b"')[0]
-  console.log({ aIndex, bIndex })
+  const grammar = prepareGrammar(rules)
+  const parser = peg.generate(grammar)
 
-  const x = rules.map(([id, rule]) => [
-    id,
-    rule
-      .replace(new RegExp(aIndex, "g"), "a")
-      .replace(new RegExp(bIndex, "g"), "b"),
-  ])
+  const correct = codes.filter((code) => {
+    try {
+      parser.parse(code, { startRule: "r0" })
+      return true
+    } catch (e) {
+      // console.log(e)
+      return false
+    }
+  })
 
-  console.log(x)
-
-  return 1
+  return correct.length
 }
 
 const goB = (rawInput: string) => {
-  const input = prepareInput(rawInput)
+  let { rules, codes } = prepareInput(rawInput)
+  const updatedRules = rules
+    .replace("8: 42", "8: 42 | 42 8")
+    .replace("11: 42 31", "11: 42 31 | 42 11 31")
 
-  return
+  const grammar = prepareGrammar(updatedRules)
+  const parser = peg.generate(grammar)
+
+  const correct = codes.filter((code) => {
+    try {
+      parser.parse(code, { startRule: "r0" })
+      return true
+    } catch (e) {
+      return false
+    }
+  })
+
+  return correct.length
 }
 
 const main = async () => {
-  /* Tests */
+  // /* Tests */
 
   test(
     goA(`0: 4 1 5
@@ -88,22 +90,71 @@ aaaabbb`),
     2,
   )
 
-  // test(goB(""), )
+  test(
+    goB(`42: 9 14 | 10 1
+9: 14 27 | 1 26
+10: 23 14 | 28 1
+1: "a"
+11: 42 31
+5: 1 14 | 15 1
+19: 14 1 | 14 14
+12: 24 14 | 19 1
+16: 15 1 | 14 14
+31: 14 17 | 1 13
+6: 14 14 | 1 14
+2: 1 24 | 14 4
+0: 8 11
+13: 14 3 | 1 12
+15: 1 | 14
+17: 14 2 | 1 7
+23: 25 1 | 22 14
+28: 16 1
+4: 1 1
+20: 14 14 | 1 15
+3: 5 14 | 16 1
+27: 1 6 | 14 18
+14: "b"
+21: 14 1 | 1 14
+25: 1 1 | 1 14
+22: 14 14
+8: 42
+26: 14 22 | 1 20
+18: 15 15
+7: 14 5 | 1 21
+24: 14 1
+
+abbbbbabbbaaaababbaabbbbabababbbabbbbbbabaaaa
+bbabbbbaabaabba
+babbbbaabbbbbabbbbbbaabaaabaaa
+aaabbbbbbaaaabaababaabababbabaaabbababababaaa
+bbbbbbbaaaabbbbaaabbabaaa
+bbbababbbbaaaaaaaabbababaaababaabab
+ababaaaaaabaaab
+ababaaaaabbbaba
+baabbaaaabbaaaababbaababb
+abbbbabbbbaaaababbbbbbaaaababb
+aaaaabbaabaaaaababaa
+aaaabbaaaabbaaa
+aaaabbaabbaaaaaaabbbabbbaaabbaabaaa
+babaaabbbaaabaababbaabababaaab
+aabbbbbaabbbaaaaaabbbbbababaaaaabbaaabba`),
+    12,
+  )
 
   /* Results */
 
   const input = read()
 
   console.time("Time")
-  // const resultA = await goA(input)
-  // const resultB = await goB(input)
+  const resultA = await goA(input)
+  const resultB = await goB(input)
   console.timeEnd("Time")
 
-  // console.log("Solution to part 1:", resultA)
-  // console.log("Solution to part 2:", resultB)
+  console.log("Solution to part 1:", resultA)
+  console.log("Solution to part 2:", resultB)
 
   // send(1, resultA)
-  // send(2, resultB)
+  // send(2, resultB) // 263
 }
 
 main()

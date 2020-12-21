@@ -1,75 +1,77 @@
-import { read, test } from "../../utils/index"
-import * as peg from "pegjs"
+import { read, test, send } from "../../utils/index"
 
 const prepareInput = (rawInput: string) => {
-  const [rules, rawCodes] = rawInput.split("\n\n")
+  const [rawRules, rawCodes] = rawInput.split("\n\n")
+
+  const rules = Object.fromEntries(
+    rawRules
+      .split("\n")
+      .map((line) => line.split(": "))
+      .map(([id, rule]) => [
+        id,
+        rule.match(/[ab]/)
+          ? rule.slice(1, -1)
+          : rule.split(" | ").map((ids) => ids.split(" ")),
+      ]),
+  )
 
   return { rules, codes: rawCodes.split("\n") }
 }
 
-const prepareGrammar = (rules) => {
-  return rules
-    .split("\n")
-    .map((rule) => rule.split(": "))
-    .map(([id, rest]) =>
-      [
-        `r${id}`,
-        rest.match(/\d+/) !== null
-          ? rest
-              .split(" | ")
-              .map((x) =>
-                x
-                  .split(" ")
-                  .map((x) => `r${x}`)
-                  .join(" "),
-              )
-              .join(" / ")
-          : rest,
-      ].join(" = "),
-    )
-    .sort()
-    .join("\n")
+function* runSeq(rules, seq, code) {
+  if (seq.length === 0) {
+    yield code
+  } else {
+    const [currSeq, ...rest] = seq
+    for (const currCode of run(rules, currSeq, code)) {
+      yield* runSeq(rules, rest, currCode)
+    }
+  }
+}
+
+function* runAlt(rules, alt, code) {
+  for (const seq of alt) {
+    yield* runSeq(rules, seq, code)
+  }
+}
+
+function* run(rules, id, code) {
+  if (Array.isArray(rules[id])) {
+    yield* runAlt(rules, rules[id], code)
+  } else {
+    if (code && code[0] === rules[id]) {
+      yield code.slice(1)
+    }
+  }
+}
+
+const match = (rules, code) => {
+  for (const m of run(rules, "0", code)) {
+    if (m === "") {
+      return true
+    }
+  }
+  return false
 }
 
 const goA = (rawInput: string) => {
-  let { rules, codes } = prepareInput(rawInput)
+  const { rules, codes } = prepareInput(rawInput)
 
-  const grammar = prepareGrammar(rules)
-  const parser = peg.generate(grammar)
-
-  const correct = codes.filter((code) => {
-    try {
-      parser.parse(code, { startRule: "r0" })
-      return true
-    } catch (e) {
-      // console.log(e)
-      return false
-    }
-  })
-
-  return correct.length
+  return codes.filter((code) => match(rules, code)).length
 }
 
 const goB = (rawInput: string) => {
-  let { rules, codes } = prepareInput(rawInput)
-  const updatedRules = rules
-    .replace("8: 42", "8: 42 | 42 8")
-    .replace("11: 42 31", "11: 42 31 | 42 11 31")
+  const { rules, codes } = prepareInput(rawInput)
+  const modifiedRules = {
+    ...rules,
+    "8": [["42"], ["42", "8"]],
+    "11": [
+      ["42", "31"],
+      ["42", "11", "31"],
+    ],
+  }
 
-  const grammar = prepareGrammar(updatedRules)
-  // console.log(grammar)
-  const parser = peg.generate(grammar)
-
-  const correct = codes.filter((code) => {
-    try {
-      parser.parse(code, { startRule: "r0" })
-      return true
-    } catch (e) {
-      return false
-    }
-  })
-
-  return correct.length
+  return codes.filter((code) => match(modifiedRules, code)).length
 }
 
 const main = async () => {
@@ -148,14 +150,14 @@ aabbbbbaabbbaaaaaabbbbbababaaaaabbaaabba`),
 
   console.time("Time")
   const resultA = await goA(input)
-  // const resultB = await goB(input)
+  const resultB = await goB(input)
   console.timeEnd("Time")
 
   console.log("Solution to part 1:", resultA)
-  // console.log("Solution to part 2:", resultB)
+  console.log("Solution to part 2:", resultB)
 
   // send(1, resultA)
-  // send(2, resultB) // 263
+  // send(2, resultB)
 }
 
 main()

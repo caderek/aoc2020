@@ -1,4 +1,4 @@
-import { read, send, test } from "../../utils/index"
+import { read, send, test, arr } from "../../utils/index"
 
 const prepareInput = (rawInput: string) =>
   rawInput.split("\n").map((food) => {
@@ -74,10 +74,7 @@ const goA = (rawInput: string) => {
 const goB = (rawInput: string) => {
   const input = prepareInput(rawInput)
   const { notSafe } = categorize(input)
-
-  const sorted = [...notSafe.entries()].sort((a, b) =>
-    a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0,
-  )
+  const sorted = arr.sortBy_.str(([x]) => x, [...notSafe.entries()])
 
   return sorted.map(([_, x]) => x).join()
 }

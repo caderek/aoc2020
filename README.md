@@ -201,7 +201,7 @@ Solution to part 2: dhfng,pgblcd,xhkdc,ghlzj,dstct,nqbnmzx,ntggc,znrzgs
 
 day22
 ------------------------------
-Time: 272.385ms
+Time: 3.144s
 Solution to part 1: 32495
-Solution to part 2: 33447
+Solution to part 2: 32665
 ```

@@ -37,7 +37,7 @@ const goB = (rawInput: string) => {
       const positionId = `${player1deck.join()}_${player2deck.join()}`
 
       if (prevDecks.has(positionId)) {
-        return { player1won: true, deck: player1deck }
+        return true
       }
 
       prevDecks.add(positionId)
@@ -46,7 +46,7 @@ const goB = (rawInput: string) => {
 
       const player1won =
         player1deck.length >= a && player2deck.length >= b
-          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).player1won
+          ? play(player1deck.slice(0, a), player2deck.slice(0, b))
           : a > b
 
       if (player1won) {
@@ -59,13 +59,12 @@ const goB = (rawInput: string) => {
     }
 
     return player1deck.length > 0
-      ? { player1won: true, deck: player1deck }
-      : { player1won: false, deck: player2deck }
   }
 
-  const { deck } = play(player1deck, player2deck)
+  const player1won = play(player1deck, player2deck)
+  const winnerDeck = player1won ? player1deck : player2deck
 
-  return deck.reverse().reduce((acc, val, i) => acc + val * (i + 1), 0)
+  return winnerDeck.reverse().reduce((acc, val, i) => acc + val * (i + 1), 0)
 }
 
 const main = async () => {

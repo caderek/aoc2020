@@ -28,44 +28,45 @@ const goA = (rawInput: string) => {
 }
 
 const goB = (rawInput: string) => {
-  const [player1deck, player2deck] = prepareInput(rawInput)
+  const [p1Deck, p2Deck] = prepareInput(rawInput)
 
-  const play = (player1deck, player2deck) => {
-    const prevDecks1 = new Set()
-    const prevDecks2 = new Set()
+  const play = (p1Deck, p2Deck) => {
+    const p1PrevDecks = new Set()
+    const p2PrevDecks = new Set()
 
-    while (player1deck.length > 0 && player2deck.length > 0) {
-      const positionId1 = player1deck.join()
-      const positionId2 = player2deck.join()
+    while (p1Deck.length > 0 && p2Deck.length > 0) {
+      const positionId1 = p1Deck.join()
+      const positionId2 = p2Deck.join()
 
-      if (prevDecks1.has(positionId1) || prevDecks2.has(positionId2)) {
+      if (p1PrevDecks.has(positionId1) || p2PrevDecks.has(positionId2)) {
         return true
       }
 
-      prevDecks1.add(positionId1)
-      prevDecks2.add(positionId2)
-      const a = player1deck.shift()
-      const b = player2deck.shift()
+      p1PrevDecks.add(positionId1)
+      p2PrevDecks.add(positionId2)
+
+      const a = p1Deck.shift()
+      const b = p2Deck.shift()
 
       const player1won =
-        player1deck.length >= a && player2deck.length >= b
-          ? play(player1deck.slice(0, a), player2deck.slice(0, b))
+        p1Deck.length >= a && p2Deck.length >= b
+          ? play(p1Deck.slice(0, a), p2Deck.slice(0, b))
           : a > b
 
       if (player1won) {
-        player1deck.push(a)
-        player1deck.push(b)
+        p1Deck.push(a)
+        p1Deck.push(b)
       } else {
-        player2deck.push(b)
-        player2deck.push(a)
+        p2Deck.push(b)
+        p2Deck.push(a)
       }
     }
 
-    return player1deck.length > 0
+    return p1Deck.length > 0
   }
 
-  const player1won = play(player1deck, player2deck)
-  const winnerDeck = player1won ? player1deck : player2deck
+  const player1won = play(p1Deck, p2Deck)
+  const winnerDeck = player1won ? p1Deck : p2Deck
 
   return winnerDeck.reverse().reduce((acc, val, i) => acc + val * (i + 1), 0)
 }

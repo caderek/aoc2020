@@ -38,7 +38,7 @@ const goB = (rawInput: string) => {
       const positionId1 = p1Deck.join()
       const positionId2 = p2Deck.join()
 
-      if (p1PrevDecks.has(positionId1) || p2PrevDecks.has(positionId2)) {
+      if (p1PrevDecks.has(positionId1) && p2PrevDecks.has(positionId2)) {
         return true
       }
 

@@ -37,19 +37,19 @@ const goB = (rawInput: string) => {
       const positionId = `${player1deck.join()}_${player2deck.join()}`
 
       if (prevDecks.has(positionId)) {
-        return { oneWon: true, deck: player1deck }
+        return { player1won: true, deck: player1deck }
       }
 
       prevDecks.add(positionId)
       const a = player1deck.shift()
       const b = player2deck.shift()
 
-      const oneWon =
+      const player1won =
         player1deck.length >= a && player2deck.length >= b
-          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).oneWon
+          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).player1won
           : a > b
 
-      if (oneWon) {
+      if (player1won) {
         player1deck.push(a)
         player1deck.push(b)
       } else {
@@ -59,8 +59,8 @@ const goB = (rawInput: string) => {
     }
 
     return player1deck.length > 0
-      ? { oneWon: true, deck: player1deck }
-      : { oneWon: false, deck: player2deck }
+      ? { player1won: true, deck: player1deck }
+      : { player1won: false, deck: player2deck }
   }
 
   const { deck } = play(player1deck, player2deck)
@@ -105,9 +105,13 @@ Player 2:
     291,
   )
 
-  /* Results */
-
   const input = read()
+
+  /* Regression tests for refactor */
+  test(goA(input), 32495)
+  test(goB(input), 32665)
+
+  /* Results */
 
   console.time("Time")
   const resultA = await goA(input)

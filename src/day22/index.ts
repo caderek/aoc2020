@@ -37,7 +37,7 @@ const goB = (rawInput: string) => {
       const positionId = `${player1deck.join()}_${player2deck.join()}`
 
       if (prevDecks.has(positionId)) {
-        return { winner: 1, deck: player1deck }
+        return { oneWon: true, deck: player1deck }
       }
 
       prevDecks.add(positionId)
@@ -46,7 +46,7 @@ const goB = (rawInput: string) => {
 
       const oneWon =
         player1deck.length >= a && player2deck.length >= b
-          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).winner
+          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).oneWon
           : a > b
 
       if (oneWon) {
@@ -114,8 +114,8 @@ Player 2:
   const resultB = await goB(input)
   console.timeEnd("Time")
 
-  console.log("Solution to part 1:", resultA)
-  console.log("Solution to part 2:", resultB)
+  console.log("Solution to part 1:", resultA) // 32495
+  console.log("Solution to part 2:", resultB) // 32665
 
   // send(1, resultA)
   // send(2, resultB)

@@ -99,6 +99,7 @@ const sendSolution = (
         console.log(`\nStatus: PART ${part} SOLVED!`)
       } else if (info.includes("That's not the right answer")) {
         console.log("\nStatus: WRONG ANSWER")
+        console.log(info)
       } else if (info.includes("You gave an answer too recently")) {
         console.log("\nStatus: TO SOON")
       } else if (

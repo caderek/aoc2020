@@ -205,3 +205,7 @@ Time: 277.354ms
 Solution to part 1: 32495
 Solution to part 2: 32665
 ```
+
+```
+Total time: 3357.962ms
+```

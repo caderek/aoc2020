@@ -22,9 +22,9 @@ const goA = (rawInput: string) => {
     }
   }
 
-  const winnerDeck = player2deck.length > 0 ? player2deck : player1deck
+  const winnerDeck = player1deck.length > 0 ? player1deck : player2deck
 
-  return winnerDeck.reverse().reduce((a, b, i) => a + b * (i + 1), 0)
+  return winnerDeck.reverse().reduce((acc, val, i) => acc + val * (i + 1), 0)
 }
 
 const goB = (rawInput: string) => {
@@ -44,38 +44,28 @@ const goB = (rawInput: string) => {
       const a = player1deck.shift()
       const b = player2deck.shift()
 
-      if (player1deck.length >= a && player2deck.length >= b) {
-        const { winner } = play(
-          player1deck.slice(0, a),
-          player2deck.slice(0, b),
-        )
+      const oneWon =
+        player1deck.length >= a && player2deck.length >= b
+          ? play(player1deck.slice(0, a), player2deck.slice(0, b)).winner
+          : a > b
 
-        if (winner === 1) {
-          player1deck.push(a)
-          player1deck.push(b)
-        } else {
-          player2deck.push(b)
-          player2deck.push(a)
-        }
+      if (oneWon) {
+        player1deck.push(a)
+        player1deck.push(b)
       } else {
-        if (a > b) {
-          player1deck.push(a)
-          player1deck.push(b)
-        } else {
-          player2deck.push(b)
-          player2deck.push(a)
-        }
+        player2deck.push(b)
+        player2deck.push(a)
       }
     }
 
-    return player2deck.length > 0
-      ? { winner: 2, deck: player2deck }
-      : { winner: 1, deck: player1deck }
+    return player1deck.length > 0
+      ? { oneWon: true, deck: player1deck }
+      : { oneWon: false, deck: player2deck }
   }
 
   const { deck } = play(player1deck, player2deck)
 
-  return deck.reverse().reduce((a, b, i) => a + b * (i + 1), 0)
+  return deck.reverse().reduce((acc, val, i) => acc + val * (i + 1), 0)
 }
 
 const main = async () => {

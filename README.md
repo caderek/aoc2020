@@ -75,133 +75,133 @@ The repo uses this template: [aoc-starter-ts](https://github.com/caderek/aoc-sta
 ```
 day01
 ------------------------------
-Time: 363.854ms
+Time: 355.543ms
 Solution to part 1: 878724
 Solution to part 2: 201251610
 
 day02
 ------------------------------
-Time: 7.264ms
+Time: 7.337ms
 Solution to part 1: 483
 Solution to part 2: 482
 
 day03
 ------------------------------
-Time: 1.046ms
+Time: 1.061ms
 Solution to part 1: 205
 Solution to part 2: 3952146825
 
 day04
 ------------------------------
-Time: 10.048ms
+Time: 10.54ms
 Solution to part 1: 242
 Solution to part 2: 186
 
 day05
 ------------------------------
-Time: 2.239ms
+Time: 2.227ms
 Solution to part 1: 935
 Solution to part 2: 743
 
 day06
 ------------------------------
-Time: 5.106ms
+Time: 5.077ms
 Solution to part 1: 6596
 Solution to part 2: 3219
 
 day07
 ------------------------------
-Time: 5.568ms
+Time: 6.89ms
 Solution to part 1: 355
 Solution to part 2: 5312
 
 day08
 ------------------------------
-Time: 73.609ms
+Time: 72.726ms
 Solution to part 1: 1337
 Solution to part 2: 1358
 
 day09
 ------------------------------
-Time: 9.339ms
+Time: 10.074ms
 Solution to part 1: 507622668
 Solution to part 2: 76688505
 
 day10
 ------------------------------
-Time: 0.407ms
+Time: 0.325ms
 Solution to part 1: 2376
 Solution to part 2: 129586085429248
 
 day11
 ------------------------------
-Time: 542.885ms
+Time: 536.596ms
 Solution to part 1: 2166
 Solution to part 2: 1955
 
 day12
 ------------------------------
-Time: 2.766ms
+Time: 2.932ms
 Solution to part 1: 1589
 Solution to part 2: 23960
 
 day13
 ------------------------------
-Time: 0.28ms
+Time: 0.306ms
 Solution to part 1: 1835
 Solution to part 2: 247086664214628
 
 day14
 ------------------------------
-Time: 197.179ms
+Time: 209.468ms
 Solution to part 1: 9879607673316
 Solution to part 2: 3435342392262
 
 day15
 ------------------------------
-Time: 559.267ms
+Time: 663.679ms
 Solution to part 1: 319
 Solution to part 2: 2424
 
 day16
 ------------------------------
-Time: 12.828ms
+Time: 10.645ms
 Solution to part 1: 25895
 Solution to part 2: 5865723727753
 
 day17
 ------------------------------
-Time: 1.020s
+Time: 1.026s
 Solution to part 1: 232
 Solution to part 2: 1620
 
 day18
 ------------------------------
-Time: 14.081ms
+Time: 14.31ms
 Solution to part 1: 5374004645253
 Solution to part 2: 88782789402798
 
 day19
 ------------------------------
-Time: 135.261ms
+Time: 133.475ms
 Solution to part 1: 147
 Solution to part 2: 263
 
 day20
 ------------------------------
-Time: 138.059ms
+Time: 138.933ms
 Solution to part 1: 59187348943703
 Solution to part 2: 1565
 
 day21
 ------------------------------
-Time: 1.984ms
+Time: 4.431ms
 Solution to part 1: 2436
 Solution to part 2: dhfng,pgblcd,xhkdc,ghlzj,dstct,nqbnmzx,ntggc,znrzgs
 
 day22
 ------------------------------
-Time: 3.042s
+Time: 272.385ms
 Solution to part 1: 32495
-Solution to part 2: 32665
+Solution to part 2: 33447
 ```

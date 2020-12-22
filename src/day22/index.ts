@@ -31,16 +31,19 @@ const goB = (rawInput: string) => {
   const [player1deck, player2deck] = prepareInput(rawInput)
 
   const play = (player1deck, player2deck) => {
-    const prevDecks = new Set()
+    const prevDecks1 = new Set()
+    const prevDecks2 = new Set()
 
     while (player1deck.length > 0 && player2deck.length > 0) {
-      const positionId = `${player1deck.join()}_${player2deck.join()}`
+      const positionId1 = player1deck.join()
+      const positionId2 = player2deck.join()
 
-      if (prevDecks.has(positionId)) {
+      if (prevDecks1.has(positionId1) || prevDecks2.has(positionId2)) {
         return true
       }
 
-      prevDecks.add(positionId)
+      prevDecks1.add(positionId1)
+      prevDecks2.add(positionId2)
       const a = player1deck.shift()
       const b = player2deck.shift()
 
@@ -113,8 +116,8 @@ Player 2:
   /* Results */
 
   console.time("Time")
-  const resultA = await goA(input)
-  const resultB = await goB(input)
+  const resultA = goA(input)
+  const resultB = goB(input)
   console.timeEnd("Time")
 
   console.log("Solution to part 1:", resultA) // 32495

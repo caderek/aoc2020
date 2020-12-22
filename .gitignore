@@ -7,5 +7,7 @@ src/**/*.js.map
 src/**/*.d.ts
 src/**/*.temp.*
 src/**/*.temp
+*.temp
+*.temp.*
 .vscode
 .env

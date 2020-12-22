@@ -29,33 +29,26 @@ const goA = (rawInput: string) => {
 
 const goB = (rawInput: string) => {
   const [player1deck, player2deck] = prepareInput(rawInput)
-  const mem = new Map()
 
   const play = (player1deck, player2deck) => {
     const prevDecks = new Set()
 
     while (player1deck.length > 0 && player2deck.length > 0) {
-      if (prevDecks.has(`${player1deck.join(",")}_${player2deck.join(",")}`)) {
+      const positionId = `${player1deck.join()}_${player2deck.join()}`
+
+      if (prevDecks.has(positionId)) {
         return { winner: 1, deck: player1deck }
       }
 
-      prevDecks.add(`${player1deck.join(",")}_${player2deck.join(",")}`)
+      prevDecks.add(positionId)
       const a = player1deck.shift()
       const b = player2deck.shift()
 
       if (player1deck.length >= a && player2deck.length >= b) {
-        const memorized = mem.get(
-          `${player1deck.join(",")}_${player2deck.join(",")}`,
+        const { winner } = play(
+          player1deck.slice(0, a),
+          player2deck.slice(0, b),
         )
-
-        let winner
-
-        if (memorized) {
-          winner = memorized
-        } else {
-          winner = play(player1deck.slice(0, a), player2deck.slice(0, b)).winner
-          mem.set(`${player1deck.join(",")}_${player2deck.join(",")}`, winner)
-        }
 
         if (winner === 1) {
           player1deck.push(a)

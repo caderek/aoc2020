@@ -7,13 +7,9 @@ const mod = (a: number, b: number) => {
   return x < 0 ? x + b : x
 }
 
-const getDest = (
-  picked: number[],
-  start: number,
-  len: number,
-  sub: number = 1,
-) => {
+const getDest = (picked: number[], start: number, len: number) => {
   let dest = 0
+  let sub = 1
 
   while (picked.includes(dest) || dest === 0) {
     dest = mod(start - sub++, len + 1)

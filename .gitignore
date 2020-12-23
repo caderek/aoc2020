@@ -11,3 +11,4 @@ src/**/*.temp
 *.temp.*
 .vscode
 .env
+build

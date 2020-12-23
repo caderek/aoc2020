@@ -13,10 +13,13 @@ const getDest = (
   len: number,
   sub: number = 1,
 ) => {
-  let dest = mod(start - sub, len + 1)
-  return picked.includes(dest) || dest === 0
-    ? getDest(picked, start, len, sub + 1)
-    : dest
+  let dest = 0
+
+  while (picked.includes(dest) || dest === 0) {
+    dest = mod(start - sub++, len + 1)
+  }
+
+  return dest
 }
 
 const play = (
@@ -25,20 +28,21 @@ const play = (
   takeN: number,
   size: number,
 ) => {
-  const nums = prepareInput(rawInput).concat(
-    Array.from({ length: size - 9 }, (_, i) => i + 10),
-  )
-
-  const links = new Uint32Array(size + 1).map((_, i) => i)
+  const nums = prepareInput(rawInput)
+  const links = new Uint32Array(size + 1).map((_, i) => i + 1)
 
   links[links.length - 1] = nums[0]
 
   nums.forEach((num, i) => {
-    links[num] = i < links.length - 2 ? nums[i + 1] : nums[0]
+    links[num] =
+      i < nums.length - 1
+        ? nums[i + 1]
+        : nums.length < links.length - 1
+        ? nums.length + 1
+        : nums[0]
   })
 
-  const len = nums.length
-
+  const len = links.length - 1
   const picked = new Array(3)
 
   let i = 0
@@ -87,8 +91,8 @@ const main = async () => {
   const input = read()
 
   console.time("Time")
-  const resultA = await goA(input)
-  const resultB = await goB(input)
+  const resultA = goA(input)
+  const resultB = goB(input)
   console.timeEnd("Time")
 
   console.log("Solution to part 1:", resultA)

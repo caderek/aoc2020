@@ -12,7 +12,7 @@ const getDest = (picked: number[], start: number, len: number) => {
   let sub = 1
 
   while (picked.includes(dest) || dest === 0) {
-    dest = mod(start - sub++, len + 1)
+    dest = mod(start - sub++, len)
   }
 
   return dest
@@ -38,7 +38,7 @@ const play = (
         : nums[0]
   })
 
-  const len = links.length - 1
+  const len = links.length
   const picked = new Array(3)
 
   let i = 0

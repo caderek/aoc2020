@@ -24,24 +24,24 @@ const play = (
   takeN: number,
   size: number,
 ) => {
-  const nums = prepareInput(rawInput)
+  const cups = prepareInput(rawInput)
   const links = new Uint32Array(size + 1).map((_, i) => i + 1)
 
-  links[links.length - 1] = nums[0]
+  links[links.length - 1] = cups[0]
 
-  nums.forEach((num, i) => {
+  cups.forEach((num, i) => {
     links[num] =
-      i < nums.length - 1
-        ? nums[i + 1]
-        : nums.length < links.length - 1
-        ? nums.length + 1
-        : nums[0]
+      i < cups.length - 1
+        ? cups[i + 1]
+        : cups.length < links.length - 1
+        ? cups.length + 1
+        : cups[0]
   })
 
   const len = links.length
   const picked = new Array(3)
 
-  let start = nums[0]
+  let start = cups[0]
 
   while (maxTurn--) {
     picked[0] = links[start]

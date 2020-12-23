@@ -29,15 +29,12 @@ const play = (
     Array.from({ length: size - 9 }, (_, i) => i + 10),
   )
 
-  const links = new Uint32Array(size + 1).map((_, i) => i)
-
-  links[links.length - 1] = nums[0]
+  const len = nums.length
+  const links = new Map()
 
   nums.forEach((num, i) => {
-    links[num] = i < links.length - 2 ? nums[i + 1] : nums[0]
+    links.set(num, nums[(i + 1) % nums.length])
   })
-
-  const len = nums.length
 
   const picked = new Array(3)
 
@@ -45,24 +42,24 @@ const play = (
   let start = nums[i]
 
   while (i < maxTurn) {
-    picked[0] = links[start]
-    picked[1] = links[picked[0]]
-    picked[2] = links[picked[1]]
-    links[start] = links[picked[2]]
+    picked[0] = links.get(start)
+    picked[1] = links.get(picked[0])
+    picked[2] = links.get(picked[1])
+    links.set(start, links.get(picked[2]))
 
     const dest = getDest(picked, start, len)
-    const end = links[dest]
-    links[dest] = picked[0]
-    links[picked[2]] = end
+    const end = links.get(dest)
+    links.set(dest, picked[0])
+    links.set(picked[2], end)
 
-    start = links[start]
+    start = links.get(start)
     i++
   }
 
-  const result = [links[1]]
+  const result = [links.get(1)]
 
   while (--takeN) {
-    result.push(links[result[result.length - 1]])
+    result.push(links.get(result[result.length - 1]))
   }
 
   return result

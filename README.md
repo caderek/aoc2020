@@ -207,11 +207,11 @@ Solution to part 2: 32665
 
 day23
 ------------------------------
-Time: 385.999ms
+Time: 361.251ms
 Solution to part 1: 89573246
 Solution to part 2: 2029056128
 ```
 
 ```
-Total time: 4320.049ms
+Total time: 4295.301ms
 ```

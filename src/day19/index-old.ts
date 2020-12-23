@@ -49,6 +49,7 @@ const goA = (rawInput: string) => {
   let { rules, codes } = prepareInput(rawInput)
 
   const grammar = prepareGrammar(rules)
+  console.log(grammar)
   const parser = peg.generate(grammar, { allowedStartRules: ["r0"] })
 
   const correct = codes.filter((code) => {
@@ -163,12 +164,12 @@ aabbbbbaabbbaaaaaabbbbbababaaaaabbaaabba`),
   const input = read()
 
   console.time("Time")
-  const resultA = await goA(input)
-  const resultB = await goB(input)
+  // const resultA = await goA(input)
+  // const resultB = await goB(input)
   console.timeEnd("Time")
 
-  console.log("Solution to part 1:", resultA)
-  console.log("Solution to part 2:", resultB)
+  // console.log("Solution to part 1:", resultA)
+  // console.log("Solution to part 2:", resultB)
 
   // send(1, resultA)
   // send(2, resultB) // 263

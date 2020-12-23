@@ -41,10 +41,9 @@ const play = (
   const len = links.length
   const picked = new Array(3)
 
-  let i = 0
-  let start = nums[i]
+  let start = nums[0]
 
-  while (i < maxTurn) {
+  while (maxTurn--) {
     picked[0] = links[start]
     picked[1] = links[picked[0]]
     picked[2] = links[picked[1]]
@@ -56,7 +55,6 @@ const play = (
     links[picked[2]] = end
 
     start = links[start]
-    i++
   }
 
   const result = [links[1]]

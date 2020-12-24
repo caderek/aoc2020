@@ -14,7 +14,7 @@ const neighborsVal = Object.values(neighbors)
 const prepareInput = (rawInput: string) =>
   rawInput
     .split("\n")
-    .map((line) => line.match(/(se|sw|nw|ne|e|w)/g).map((x) => neighbors[x]))
+    .map((line) => line.match(/(se|sw|nw|ne|e|w)/g).map((v) => neighbors[v]))
 
 const getBlackTiles = (input: number[][][]) => {
   const blackTiles = new Set()
@@ -71,7 +71,7 @@ const goB = (rawInput: string) => {
 
   const blackTiles = [...getBlackTiles(input)]
     .map((x: string) => x.split(","))
-    .map(([q, r]) => [Number(q), Number(r)])
+    .map(([z, y]) => [Number(z), Number(y)])
 
   const minZ = Math.abs(Math.min(...blackTiles.map(([z]) => z)))
   const minY = Math.abs(Math.min(...blackTiles.map(([_, y]) => y)))
@@ -109,7 +109,7 @@ const goB = (rawInput: string) => {
     i++
   }
 
-  return world.flat().filter((x) => x === 1).length
+  return world.flat().filter((v) => v === 1).length
 }
 
 const main = async () => {

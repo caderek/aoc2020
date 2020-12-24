@@ -85,9 +85,9 @@ const goB = (rawInput: string) => {
   blackTiles.forEach(([z, y]) => (grid[z + minZ][y + minY] = 1))
 
   let world = surroundByEmptySpace(grid)
-  let i = 0
+  let turns = 100
 
-  while (i < 100) {
+  while (turns--) {
     const copy = JSON.parse(JSON.stringify(world))
 
     for (let z = 0; z < world.length; z++) {
@@ -106,7 +106,6 @@ const goB = (rawInput: string) => {
     }
 
     world = surroundByEmptySpace(copy)
-    i++
   }
 
   return world.flat().filter((v) => v === 1).length

@@ -1,10 +1,4 @@
 import { read, send } from "../../utils/index"
-import * as peg from "pegjs"
-
-const grammar = `
-r = dir+
-dir =  "se" / "sw" / "nw" / "ne" / "e" / "w"
-`
 
 const neighbors = {
   se: [-1, 1, 0],
@@ -17,12 +11,10 @@ const neighbors = {
 
 const neighborsVal = Object.values(neighbors)
 
-const parser = peg.generate(grammar)
-
 const prepareInput = (rawInput: string) =>
   rawInput
     .split("\n")
-    .map((line) => parser.parse(line).map((x) => neighbors[x]))
+    .map((line) => line.match(/(se|sw|nw|ne|e|w)/g).map((x) => neighbors[x]))
 
 const getBlackTiles = (input: number[][][]) => {
   const blackTiles = new Set()

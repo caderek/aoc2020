@@ -1,12 +1,12 @@
 import { read, send } from "../../utils/index"
 
 const neighbors = {
-  se: [-1, 1, 0],
-  sw: [0, 1, -1],
-  nw: [1, -1, 0],
-  ne: [0, -1, 1],
-  e: [-1, 0, 1],
-  w: [1, 0, -1],
+  se: [-1, 1],
+  sw: [0, 1],
+  nw: [1, -1],
+  ne: [0, -1],
+  e: [-1, 0],
+  w: [1, 0],
 }
 
 const neighborsVal = Object.values(neighbors)
@@ -20,11 +20,7 @@ const getBlackTiles = (input: number[][][]) => {
   const blackTiles = new Set()
 
   input.forEach((coords) => {
-    const point = coords.reduce((a, b) => [
-      a[0] + b[0],
-      a[1] + b[1],
-      a[2] + b[2],
-    ])
+    const point = coords.reduce((a, b) => [a[0] + b[0], a[1] + b[1]])
 
     const id = point.join()
 
@@ -45,7 +41,7 @@ const goA = (rawInput: string) => {
   return blackTiles.size
 }
 
-const countNeighbors = (arr, z, y) => {
+const countNeighbors = (arr: number[][], z: number, y: number) => {
   let n = 0
 
   neighborsVal.forEach(([i, j]) => {
@@ -57,7 +53,7 @@ const countNeighbors = (arr, z, y) => {
   return n
 }
 
-const surroundByEmptySpace = (arr: (number | undefined)[][]) => {
+const surroundByEmptySpace = (arr: number[][]) => {
   const h = arr.length + 2
   const d = arr[0].length + 2
 

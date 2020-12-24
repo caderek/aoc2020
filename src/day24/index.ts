@@ -17,7 +17,7 @@ const prepareInput = (rawInput: string) =>
     .map((line) => line.match(/(se|sw|nw|ne|e|w)/g).map((v) => neighbors[v]))
 
 const getBlackTiles = (input: number[][][]) => {
-  const blackTiles = new Set()
+  const blackTiles = new Map()
 
   input.forEach((coords) => {
     const point = coords.reduce((a, b) => [a[0] + b[0], a[1] + b[1]])
@@ -27,7 +27,7 @@ const getBlackTiles = (input: number[][][]) => {
     if (blackTiles.has(id)) {
       blackTiles.delete(id)
     } else {
-      blackTiles.add(id)
+      blackTiles.set(id, point)
     }
   })
 
@@ -36,9 +36,8 @@ const getBlackTiles = (input: number[][][]) => {
 
 const goA = (rawInput: string) => {
   const input = prepareInput(rawInput)
-  const blackTiles = getBlackTiles(input)
 
-  return blackTiles.size
+  return getBlackTiles(input).size
 }
 
 const countNeighbors = (arr: number[][], z: number, y: number) => {
@@ -65,14 +64,14 @@ const surroundByEmptySpace = (arr: number[][]) => {
 const goB = (rawInput: string, turns: number = 100) => {
   const input = prepareInput(rawInput)
 
-  const blackTiles = [...getBlackTiles(input)]
-    .map((x: string) => x.split(","))
-    .map(([z, y]) => [Number(z), Number(y)])
+  const blackTiles = [...getBlackTiles(input).values()]
 
-  const minZ = Math.abs(Math.min(...blackTiles.map(([z]) => z)))
-  const minY = Math.abs(Math.min(...blackTiles.map(([_, y]) => y)))
-  const sizeZ = Math.max(...blackTiles.map(([z]) => z)) + minZ + 1
-  const sizeY = Math.max(...blackTiles.map(([_, y]) => y)) + minY + 1
+  const zs = blackTiles.map(([z]) => z)
+  const ys = blackTiles.map(([_, y]) => y)
+  const minZ = Math.abs(Math.min(...zs))
+  const minY = Math.abs(Math.min(...ys))
+  const sizeZ = Math.max(...zs) + minZ + 1
+  const sizeY = Math.max(...ys) + minY + 1
 
   const grid = Array.from({ length: sizeZ }, () =>
     Array.from({ length: sizeY }, () => 0),

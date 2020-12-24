@@ -66,7 +66,7 @@ const surroundByEmptySpace = (arr: (number | undefined)[][]) => {
   )
 }
 
-const goB = (rawInput: string) => {
+const goB = (rawInput: string, turns: number = 100) => {
   const input = prepareInput(rawInput)
 
   const blackTiles = [...getBlackTiles(input)]
@@ -85,7 +85,6 @@ const goB = (rawInput: string) => {
   blackTiles.forEach(([z, y]) => (grid[z + minZ][y + minY] = 1))
 
   let world = surroundByEmptySpace(grid)
-  let turns = 100
 
   while (turns--) {
     const copy = JSON.parse(JSON.stringify(world))

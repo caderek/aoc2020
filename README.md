@@ -26,7 +26,7 @@
 [![Day](https://badgen.net/badge/22/%E2%98%85%E2%98%85/blue)](src/day22)
 [![Day](https://badgen.net/badge/23/%E2%98%85%E2%98%85/blue)](src/day23)
 [![Day](https://badgen.net/badge/24/%E2%98%85%E2%98%85/blue)](src/day24)
-[![Day](https://badgen.net/badge/25/%E2%98%85%E2%98%85/bue)](src/day25)
+[![Day](https://badgen.net/badge/25/%E2%98%85%E2%98%85/blue)](src/day25)
 
 ## Join my leaderboard
 

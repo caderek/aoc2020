@@ -5,6 +5,9 @@ lib
 src/**/*.js
 src/**/*.js.map
 src/**/*.d.ts
+utils/**/*.js
+utils/**/*.js.map
+utils/**/*.d.ts
 src/**/*.temp.*
 src/**/*.temp
 *.temp

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./scripts/start.js",
+    "bench": "node ./scripts/bench.js",
     "build": "tsc"
   },
   "devDependencies": {

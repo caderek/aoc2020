@@ -7,8 +7,8 @@
       "day": "01",
       "level": 4,
       "score": 16,
-      "time": 368,
-      "rel": 9.893
+      "time": 367,
+      "rel": 9.866
     },
     {
       "day": "02",
@@ -28,8 +28,8 @@
       "day": "04",
       "level": 8,
       "score": 256,
-      "time": 10,
-      "rel": 0.269
+      "time": 11,
+      "rel": 0.296
     },
     {
       "day": "05",
@@ -49,36 +49,36 @@
       "day": "07",
       "level": 9,
       "score": 512,
-      "time": 6,
-      "rel": 0.162
+      "time": 7,
+      "rel": 0.189
     },
     {
       "day": "08",
       "level": 5,
       "score": 32,
-      "time": 76,
-      "rel": 2.044
+      "time": 77,
+      "rel": 2.07
     },
     {
       "day": "09",
       "level": 8,
       "score": 256,
-      "time": 12,
-      "rel": 0.323
+      "time": 11,
+      "rel": 0.296
     },
     {
       "day": "10",
       "level": 10,
       "score": 1024,
-      "time": 1,
-      "rel": 0.027
+      "time": 2,
+      "rel": 0.054
     },
     {
       "day": "11",
       "level": 3,
       "score": 8,
-      "time": 516,
-      "rel": 13.871
+      "time": 521,
+      "rel": 14.006
     },
     {
       "day": "12",
@@ -98,15 +98,15 @@
       "day": "14",
       "level": 4,
       "score": 16,
-      "time": 195,
-      "rel": 5.242
+      "time": 192,
+      "rel": 5.162
     },
     {
       "day": "15",
       "level": 3,
       "score": 8,
-      "time": 652,
-      "rel": 17.527
+      "time": 689,
+      "rel": 18.522
     },
     {
       "day": "16",
@@ -119,64 +119,64 @@
       "day": "17",
       "level": 2,
       "score": 4,
-      "time": 1060,
-      "rel": 28.495
+      "time": 1046,
+      "rel": 28.119
     },
     {
       "day": "18",
       "level": 8,
       "score": 256,
-      "time": 15,
-      "rel": 0.404
+      "time": 14,
+      "rel": 0.377
     },
     {
       "day": "19",
       "level": 5,
       "score": 32,
-      "time": 137,
-      "rel": 3.683
+      "time": 133,
+      "rel": 3.576
     },
     {
       "day": "20",
       "level": 5,
       "score": 32,
-      "time": 151,
-      "rel": 4.06
+      "time": 141,
+      "rel": 3.791
     },
     {
       "day": "21",
-      "level": 9,
-      "score": 512,
-      "time": 7,
-      "rel": 0.189
+      "level": 10,
+      "score": 1024,
+      "time": 3,
+      "rel": 0.081
     },
     {
       "day": "22",
       "level": 2,
       "score": 4,
-      "time": 767,
-      "rel": 20.619
+      "time": 769,
+      "rel": 20.673
     },
     {
       "day": "23",
-      "level": 4,
-      "score": 16,
-      "time": 369,
-      "rel": 9.92
+      "level": 3,
+      "score": 8,
+      "time": 426,
+      "rel": 11.452
     },
     {
       "day": "24",
-      "level": 2,
-      "score": 4,
-      "time": 747,
-      "rel": 20.081
+      "level": 3,
+      "score": 8,
+      "time": 739,
+      "rel": 19.866
     },
     {
       "day": "25",
       "level": 5,
       "score": 32,
-      "time": 107,
-      "rel": 2.877
+      "time": 106,
+      "rel": 2.85
     }
   ],
   "benchmark": 3719736602

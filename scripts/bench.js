@@ -8,16 +8,16 @@ const days = readdirSync("./src").filter(
 
 if (!day) {
   days.forEach((day) => {
-    spawnSync("./aoctimer", ["ts-node", `src/${day}/index.ts`], {
+    spawnSync("aoctimer", ["node", `src/${day}/index.js`], {
       stdio: "inherit",
     })
   })
 
-  spawnSync("./aoctimer", ["summary"], {
+  spawnSync("aoctimer", ["summary"], {
     stdio: "inherit",
   })
 } else {
-  spawn("./aoctimer", ["ts-node", `src/${day}/index.ts`], {
+  spawn("aoctimer", ["node", `src/${day}/index.js`], {
     stdio: "inherit",
   })
 }

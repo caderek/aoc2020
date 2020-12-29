@@ -116,10 +116,10 @@ Player 2:
 
   /* Results */
 
-  console.time("Time")
+  console.log("^")
   const resultA = goA(input)
   const resultB = goB(input)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA) // 32495
   console.log("Solution to part 2:", resultB) // 32665

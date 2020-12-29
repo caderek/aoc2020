@@ -78,10 +78,10 @@ const main = async () => {
 
   const input = read()
 
-  console.time("Time")
+  console.log("^")
   const resultA = await goA(input, 3, 1)
   const resultB = await goB(input, slopes)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)

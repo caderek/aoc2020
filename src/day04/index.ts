@@ -111,10 +111,10 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`).length,
 
   const input = read()
 
-  console.time("Time")
+  console.log("^")
   const resultA = await goA(input).length
   const resultB = await goB(input).length
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)

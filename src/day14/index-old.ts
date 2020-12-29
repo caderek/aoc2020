@@ -96,10 +96,10 @@ mem[26] = 1`.trim(),
 
   const input = read()
 
-  console.time("Time")
+  console.log("^")
   const resultA = goA(input)
   const resultB = goB(input)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)

@@ -134,10 +134,10 @@ dark violet bags contain no other bags.
 
   const graph = createGraph(prepareInput(read()))
 
-  console.time("Time")
+  console.log("^")
   const resultA = await goA(graph)
   const resultB = await goB(graph)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)

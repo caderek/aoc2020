@@ -41,9 +41,9 @@ const main = async () => {
 
   const input = read()
 
-  console.time("Time")
+  console.log("^")
   const result = await go(input)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution:", result)
 

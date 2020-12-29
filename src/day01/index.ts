@@ -47,8 +47,9 @@ const main = async () => {
 
   /* Results */
 
-  console.log("^")
   const input = read()
+
+  console.log("^")
   const resultA = await goA(input)
   const resultB = await goB(input)
   console.log("$")

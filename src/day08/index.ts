@@ -76,10 +76,10 @@ acc +6
 
   const input = read()
 
-  console.time("Time")
+  console.log("^")
   const resultA = await goA(input)
   const resultB = await goB(input)
-  console.timeEnd("Time")
+  console.log("$")
 
   console.log("Solution to part 1:", resultA)
   console.log("Solution to part 2:", resultB)

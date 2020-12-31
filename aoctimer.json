@@ -7,8 +7,8 @@
       "day": "01",
       "level": 4,
       "score": 16,
-      "time": 362,
-      "rel": 7.461
+      "time": 410,
+      "rel": 8.451
     },
     {
       "day": "02",
@@ -28,8 +28,8 @@
       "day": "04",
       "level": 8,
       "score": 256,
-      "time": 13,
-      "rel": 0.268
+      "time": 10,
+      "rel": 0.207
     },
     {
       "day": "05",
@@ -47,17 +47,17 @@
     },
     {
       "day": "07",
-      "level": 9,
-      "score": 512,
-      "time": 6,
-      "rel": 0.124
+      "level": 8,
+      "score": 256,
+      "time": 10,
+      "rel": 0.207
     },
     {
       "day": "08",
       "level": 6,
       "score": 64,
-      "time": 75,
-      "rel": 1.546
+      "time": 79,
+      "rel": 1.629
     },
     {
       "day": "09",
@@ -77,8 +77,8 @@
       "day": "11",
       "level": 3,
       "score": 8,
-      "time": 498,
-      "rel": 10.264
+      "time": 519,
+      "rel": 10.697
     },
     {
       "day": "12",
@@ -98,15 +98,15 @@
       "day": "14",
       "level": 5,
       "score": 32,
-      "time": 204,
-      "rel": 4.205
+      "time": 193,
+      "rel": 3.978
     },
     {
       "day": "15",
       "level": 3,
       "score": 8,
-      "time": 572,
-      "rel": 11.789
+      "time": 595,
+      "rel": 12.263
     },
     {
       "day": "16",
@@ -119,29 +119,29 @@
       "day": "17",
       "level": 2,
       "score": 4,
-      "time": 1019,
-      "rel": 21.002
+      "time": 1046,
+      "rel": 21.559
     },
     {
       "day": "18",
       "level": 8,
       "score": 256,
-      "time": 16,
-      "rel": 0.33
+      "time": 17,
+      "rel": 0.351
     },
     {
       "day": "19",
       "level": 5,
       "score": 32,
-      "time": 128,
-      "rel": 2.639
+      "time": 137,
+      "rel": 2.824
     },
     {
       "day": "20",
       "level": 5,
       "score": 32,
-      "time": 136,
-      "rel": 2.803
+      "time": 139,
+      "rel": 2.865
     },
     {
       "day": "21",
@@ -154,29 +154,29 @@
       "day": "22",
       "level": 3,
       "score": 8,
-      "time": 730,
-      "rel": 15.046
+      "time": 763,
+      "rel": 15.726
     },
     {
       "day": "23",
       "level": 4,
       "score": 16,
-      "time": 322,
-      "rel": 6.637
+      "time": 333,
+      "rel": 6.864
     },
     {
       "day": "24",
       "level": 3,
       "score": 8,
-      "time": 737,
-      "rel": 15.19
+      "time": 748,
+      "rel": 15.417
     },
     {
       "day": "25",
       "level": 5,
       "score": 32,
-      "time": 104,
-      "rel": 2.144
+      "time": 106,
+      "rel": 2.185
     }
   ],
   "benchmark": 4851284172

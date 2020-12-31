@@ -10,24 +10,24 @@
   },
   "devDependencies": {
     "@types/graphlib": "^2.1.5",
-    "@types/lodash": "^4.14.149",
-    "@types/mathjs": "^6.0.2",
-    "@types/node": "^12.12.14",
-    "aoctimer": "^1.0.0",
-    "core-js": "^3.4.5",
+    "@types/lodash": "^4.14.166",
+    "@types/mathjs": "^6.0.9",
+    "@types/node": "^14.14.17",
+    "aoctimer": "^1.0.2",
+    "core-js": "^3.8.1",
     "nodemon": "^2.0.6",
     "shelljs": "^0.8.3",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.2"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@arrows/array": "^1.3.0",
+    "@arrows/array": "^1.4.1",
     "@arrows/arrows": "^0.5.0",
     "@arrows/composition": "^1.2.1",
     "@arrows/dispatch": "^1.0.2",
     "@arrows/multimethod": "^1.1.6",
     "@arrows/worker": "^1.2.0",
-    "@types/ramda": "^0.26.37",
+    "@types/ramda": "^0.27.34",
     "bigint-crypto-utils": "^3.0.9",
     "clone-deep": "^4.0.1",
     "dotenv": "^8.2.0",
@@ -35,13 +35,13 @@
     "get-caller-file": "^2.0.5",
     "graphlib": "^2.1.8",
     "jsdom": "^16.4.0",
-    "kleur": "^3.0.3",
+    "kleur": "^4.1.3",
     "lodash": "^4.17.15",
-    "log-update": "^3.3.0",
-    "mathjs": "^6.2.5",
+    "log-update": "^4.0.0",
+    "mathjs": "^8.1.1",
     "node-fetch": "^2.6.1",
     "pegjs": "^0.10.0",
     "primes-and-factors": "^1.3.3",
-    "ramda": "^0.26.1"
+    "ramda": "^0.27.1"
   }
 }
